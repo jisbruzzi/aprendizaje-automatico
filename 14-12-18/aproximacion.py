@@ -5,7 +5,7 @@ import sys
 
 datos=pickle.load(open("../puntos_generados/puntos.pickle","rb"))
 #print(datos)
-a=np.array(datos)[:100]
+a=np.array(datos)[:200]
 print(a.shape)
 print("Primer argumento: h (tamaño de los intervalos). Segundo argumento: M (grado del polinomio).")
 

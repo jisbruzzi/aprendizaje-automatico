@@ -1,0 +1,120 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{pdfpages}
+\usepackage[T1]{fontenc} %Me deja combinar la negrita con las Mayusculas
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{dsfont} %para el 1
+\usepackage{mathrsfs}
+\usepackage{enumitem} %Para la enumeracion con letras
+
+\usepackage{graphicx} %para la imagen
+\usepackage{subcaption} %para poner varias imagenes juntas
+\usepackage{float}
+
+
+\usepackage{chngcntr} %Para resetear el contador de las ecuaciones por secciones y subsecciones
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+
+\title{Tarea de Aprendizaje Estadístico}
+\author{}
+\date{}
+
+\begin{document}
+\begin{titlepage} %Inicio de la caratula del tp
+	\centering
+	  \includegraphics[width=0.15\textwidth]{FIUBA_logo}\par
+	  {\scshape\Large Universidad de Buenos Aires
+      \\ Facultad de Ingenieria \par}
+      {\scshape\small Año 2018 - 2er Cuatrimestre \par}
+	  \vspace{1cm}
+	  {\scshape\bfseries\LARGE Aprendizaje Estadístico, Teoría y aplicación\par}
+	  \vspace{0.5cm}
+	  \vspace{1cm}
+      {\scshape\large Resúmen de la materia y devolutiva \par}
+      \vspace{0.5cm
+      \raggedright}
+      \vspace{0.5cm}
+    \centering
+	  {\normalsize Sbruzzi, José Ignacio - Ingeniería Informática \#97452 \par}
+      {\small  jose.sbru@gmail.com \par}
+\end{titlepage} %Cerrado de la caratula del tp
+\newpage
+\tableofcontents
+\newpage
+\section{Clase 1 (31/8)}
+La primera parte de esta clase fue un repaso de diversos temas que serán útiles durante la cursada:
+\begin{itemize}
+    \item Teorema de pitágoras
+    \item espacios euclídeos
+    \item Ortogonalidad
+    \item Relación entre el producto interno y el coseno
+    \item Desigualdad Cauchy-Schwartz
+    \item Norma inducida
+    \item Proyección Ortogonal
+    \item Definición de esperanza
+    \item El espacio algebraico de variables aleatorias
+    \item Desigualdad de Markov
+    \item Desigualdad de Chebyshev
+    \item Desigualdad de Chernoff
+    \item Desigualdad de Jensen
+    \item Función convexa
+    \item Esperanza condicional
+\end{itemize}
+La segunda parte de la clase se habló del problema de la comunicación digital para ilustrar la lógica por detrás de la construcción de un clasificador bayesiano.
+Siendo $\delta(r)$ una función que predice el dígito (0 o 1) emitido a partir del recibido $r \in \{0,1\}$. $P(S=s|R=r)$ es la probabilidad de que se haya emitido el dígito $s$ dado que se recibió el dígito $r$.
+$$\delta(r)=\mathds{1}\{\mathds{P}(S=1|R=r) > \mathds{P}(S=0|R=r)\}$$
+Así, este clasificador toma la mejor decisión posible para la información que se tiene disponible ($r$), con lo cual es un clasificador bayesiano.
+
+\section{Clase 2 (7/9)}
+\subsection{Definiciones iniciales}
+\subsubsection{Clasificador}
+$$g:\mathds{R}^d\rightarrow\{ 1,2,...,M \}$$
+$g(x)$ representa una conjetura respecto de la naturaleza de la distribución de las $x$. El clasificador se equivoca cuando $g(x) \neq y$.
+\subsubsection{Calidad del clasificador}
+Sea $(X,Y) \in \mathds{R}^d \times \{1,2, ..., M \}$ un par donde $X$ es una variable aleatoria que representa las propiedades observables y $Y$ la característica a predecir. Así, se define la pérdida de un clasificador como 
+$L(g) = \mathds{P} ( g(X) \neq Y )$.
+\subsubsection{Clasificador bayesiano}
+Es el mejor clasificador, definido por
+$$ argmin_{g:\mathds{R}^d \rightarrow \{1, ..., M\}}\{\mathds{P}( g(X) \neq Y )\} = g^{*}$$
+
+$$L^{*}=L(g^{*})$$
+
+No se da siempre que $L^{*}=0$ porque $Y$ podría no ser una función de $X$.
+
+\subsubsection{Dataset de entrenamiento}
+Se denota como $(X_i,Y_i), i = 1, 2, ..., n$; donde las parejas $(X_i,Y_i)$ son observaciones independientes e identicamente distribuidas, al igual que $(X,Y)$.
+
+$$ D_n = \{(X_i,Y_i), i = 1, 2, ..., n\} $$
+
+Así, en realidad, cuando aplicamos algoritmos de machine learning tenemos una g denotada como:
+$$g(X,(X_1,Y_1), (X_2,Y_2), ..., (X_n,Y_n))$$
+Donde $X$ es una nueva observación.
+
+Es decir,
+$$g_n:\mathds{R}^d \times ( \mathds{R}^d \times \{ 1, ..., M \})^n \rightarrow \{1,...,M\}$$
+
+Así, tenemos $$L_n=L(g_n) = \mathds{P} ( g(X,(X_1,Y_1), ..., (X_n,Y_n)) \neq Y | (X_1,Y_1), ..., (X_n,Y_n))$$
+
+Con lo cual $L_n$ es una variable aleatoria dependiente de las observaciones.
+\subsection{Clasificador bayesiano para M=2}
+
+Sean (con $A \subset \mathds{R}^d$, $x \in \mathds{R}^d$ , $y\in \{0,1\}$):
+
+$$\mu(A)=\mathds{P}(x \in A)$$
+$$\eta(x)=\mathds{P}(Y=1 | X=x)=\mathds{E}[y|X=x]$$
+
+Así, $$\eta(x)=\int_{C}\mathds{P}(Y=0|X=x) \mu(dx) + \int_{C}\mathds{P}(Y=1|X=x) \mu(dx)$$
+Siendo $C=\mathds{R}^d \times \{0,1\}$.
+
+Bajo estas condiciones, $$g^{*}(x)=\mathds{1}\{ \eta(x)>\frac{1}{2} \}$$
+
+\section{Clase 3 (14/9)}
+
+
+
+\end{document}

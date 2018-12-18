@@ -106,7 +106,7 @@ Con lo cual $L_n$ es una variable aleatoria dependiente de las observaciones.
 Sean (con $A \subset \mathds{R}^d$, $x \in \mathds{R}^d$ , $y\in \{0,1\}$):
 
 $$\mu(A)=\mathds{P}(x \in A)$$
-$$\eta(x)=\mathds{P}(Y=1 | X=x)=\mathds{E}[y|X=x]$$
+$$\eta(x)=\mathds{P}(Y=1 | X=x)=\mathds{E}[Y|X=x]$$
 
 Así, $$\eta(x)=\int_{C}\mathds{P}(Y=0|X=x) \mu(dx) + \int_{C}\mathds{P}(Y=1|X=x) \mu(dx)$$
 Siendo $C=\mathds{R}^d \times \{0,1\}$.
@@ -115,6 +115,80 @@ Bajo estas condiciones, $$g^{*}(x)=\mathds{1}\{ \eta(x)>\frac{1}{2} \}$$
 
 \section{Clase 3 (14/9)}
 
+\subsection{Plug-in decision}
 
+Una "plug-in decision" (decisión "enchufada") es una función $g$ definida por medio de una cierta función $\tilde{\eta}(x)$. Así, la función de decisión plug-in se define como:
+
+$$g(x)=\mathds{1}\{ \tilde{\eta}(x) > \frac{1}{2}\}$$
+
+En clase se demostró un teorema que establece que 
+
+$$L(g) - L^{*}(g) \leq \int_{\mathds{R}^d} |\eta(x)-\tilde{\eta}(x)| \mu(dx) = 2 \mathds{E}[ \eta(X) - \tilde { \eta}(X) ]$$
+
+Es decir, que si las funciones $\eta(x)$ y $\tilde{\eta}(x)$ son funciones similares (lo cual se ve más claramente en el miembro central de la fórmula anterior), los errores cometidos también serán similares. Es decir que, cuanto más se parezca $\eta$ a $\tilde{\eta}$, más cerca estará el error de $g$ del menor error posible (que es el de $g^{*}$).
+\subsection{Convergencia debil y fuerte}
+Una regla de clasificación $g_n$ es consistente si, para ciertas distribuciones de $(X,Y)$, se cumple:
+
+$$\mathds{E}[L_n] = \mathds{P}(g_n(X,D_n)\neq Y) \rightarrow L^{*}\text{ cuando } n \rightarrow \infty$$
+
+Y es fuertamente consistente si 
+
+$$\mathop{lim}_{n \rightarrow \infty} L_n = L^{*} \text{ con probabilidad 1}$$
+
+Una regla de clasificación es \textbf{universalmente consistente} si es fuertemente consistente para cualquier distribución de $(X,Y)$.
+
+\subsection{Reglas basadas en particiones}
+Muchas reglas de clasificación particionan el espacio en celdas disjuntas $A_i$, de forma que $$\mathds{R}^d = \mathop{\bigcup}_{i=1}^{\infty}A_i$$
+La regla se basa en la "mayoría electoral", es decir, si $x$ pertenece a cierto $A_i$, entonces $g$ le asignará el valor más común de $y_i$ para los $x_i$ pertenecientes a $A_i$. Es decir,
+
+$$g_n(x)=\mathds{1}\bigg \{ \mathop{\sum}_{i=1}^{n} \mathds{1}\{Y_i=1\} \mathds{1}\{X_i \in A(x)\} \geq \mathop{\sum}_{i=1}^{n} \mathds{1}\{Y_i=0\} \mathds{1}\{X_i \in A(x)\} \bigg \}$$
+
+donde $A(x)$ es el $A_i$ al que pertenece $x$.
+Sea el diámetro de un conjunto contenido en $\mathds{R}^d$ definido como:
+$$diam(A)=\mathop{sup}_{x,y \in A} || x-y||$$
+
+Y sea la cantidad de $X_i$ presentes en la misma celda que $x$ definida como:
+$$N(x)=\mathop{\sum}_{i=1}^{n}\mathds{1}\{ X_i \in A(x) \}$$
+
+La regla $g_n$ definida más arriba es consistente cuando se cumplen las siguientes condiciones:
+$$diam(A(X))\rightarrow 0 \text{ en probabilidad}$$
+$$N(X)\rightarrow \infty \text{ en probabilidad}$$
+
+Es decir, los $A_i$ deben ser tales que su tamaño decrece a medida que crece $n$ pero la cantidad de puntos que contiene crece junto con $n$: deben ir reduciendo su tamaño pero no demasiado rápido, no deben tender a "vaciarse".
+
+\subsection{La regla del histograma}
+La regla del histograma es un caso especial de la regla de clasificación de la sección anterior en la que los $A_i$ son hipercubos de dimensión $d$ y de lado $h_n$.
+
+Esta regla es universalmente consistente si se cumplen las siguientes condiciones:
+$$h_n \rightarrow 0 \text{ cuando } n\rightarrow \infty$$
+$$nh_n^d \rightarrow \infty \text{ cuando } n\rightarrow \infty$$
+
+Estas condiciones son análogas a las de la sección anterior, con la diferencia de que cuando el espacio se parte en hipercubos se obtiene consistencia universal.
+
+\section{Clase 4 (28/9)}
+\subsection{El teorema de Stone}
+El teorema de Stone indica condiciones bajo las cuales un clasificador que podría verse como una generalización de los de la clase 3 converge universalmente.
+
+Se definen:
+$$ \eta_n(x)=\mathop{\sum}_{i=1}^{n} \mathds{1}\{Y_i=1\} W_{ni}(x) $$
+Siendo:
+$$ \sum_{i=1}^n W_{ni}(x)=1 $$
+Y se define la regla de clasificación como:
+$$ g_n(x) = \mathds{1}\bigg \{ \sum_{i=1}^n \mathds{1}\{Y_i=1\} W_{ni}(x) \geq \mathds{1}\{Y_i=0\} W_{ni}(x) \bigg \} $$
+
+$g_n$ converge universalmente cuando se cumplen las siguientes tres condiciones:
+
+\subsubsection{Condición 1}
+Existe una constante $c$ tal que, para cualquier función medible $f$ tal que $\mathds{E}[f(X)]<\infty$,
+$$\mathds{E} \bigg \{ \sum_{i=1}^n W_{ni}(X)f(X_i) \bigg \} \leq c \mathds{E}[f(X)]$$
+
+\subsubsection{Condición 2}
+Para todo $a >0$,
+
+$$\mathop{lim}_{ n \rightarrow \infty} \mathds{E} \bigg \{ \sum_{i=1}^n W_{ni}(X)\mathds{1}\{ || X_i -X ||>a \} \bigg \} = 0$$
+
+\subsubsection{Condición 3}
+
+$$ \mathop{lim}_{n \rightarrow \infty} \mathds{E} \bigg \{  \mathop{max}_{1 \leq i \leq n} W_{ni}(X)\bigg \} $$
 
 \end{document}

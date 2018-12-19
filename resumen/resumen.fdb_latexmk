@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1545176940 "/home/jose/aprendizaje-automatico/resumen/resumen.tex" "resumen.pdf" "resumen" 1545176940
+["pdflatex"] 1545177807 "/home/jose/aprendizaje-automatico/resumen/resumen.tex" "resumen.pdf" "resumen" 1545177808
   "/etc/texmf/web2c/texmf.cnf" 1540554342 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/jose/aprendizaje-automatico/resumen/resumen.tex" 1545176940 9110 f4e2e4650ff4bdc472d889ac8ce51856 ""
+  "/home/jose/aprendizaje-automatico/resumen/resumen.tex" 1545177807 9522 dac8842fce19e01aea621908e0f85efc ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1480098696 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1480098696 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -128,11 +128,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1540554386 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1540554398 4127239 13ed65992737eca6d579db149732e944 ""
   "FIUBA_logo.jpg" 1545079704 26722 0816dfbaaa09e1e7ed51624b8b5fd34f ""
-  "resumen.aux" 1545176940 1697 bd3d6383d478a8ae00b93df64811f739 ""
-  "resumen.tex" 1545176940 9110 f4e2e4650ff4bdc472d889ac8ce51856 ""
-  "resumen.toc" 1545176940 1284 6905ddf0c796ef99fd2ed9a83c0a0187 ""
+  "resumen.aux" 1545177808 2133 e16e9b429af28a2fe88f1419b3cd0858 ""
+  "resumen.tex" 1545177807 9522 dac8842fce19e01aea621908e0f85efc ""
+  "resumen.toc" 1545177808 1630 4b959d79ac75c43a3b3d25d76a33e917 ""
   (generated)
-  "resumen.toc"
-  "resumen.aux"
-  "resumen.log"
   "resumen.pdf"
+  "resumen.aux"
+  "resumen.toc"
+  "resumen.log"

@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1545177807 "/home/jose/aprendizaje-automatico/resumen/resumen.tex" "resumen.pdf" "resumen" 1545177808
+["pdflatex"] 1545266330 "/home/jose/aprendizaje-automatico/resumen/resumen.tex" "resumen.pdf" "resumen" 1545266330
   "/etc/texmf/web2c/texmf.cnf" 1540554342 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/jose/aprendizaje-automatico/resumen/resumen.tex" 1545177807 9522 dac8842fce19e01aea621908e0f85efc ""
+  "/home/jose/aprendizaje-automatico/resumen/resumen.tex" 1545266329 14061 f575b1dbed4f420f23486a460e9abaf3 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1480098696 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1480098696 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -43,9 +43,11 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1480098733 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1480098733 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1480098733 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1480098733 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1480098733 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1480098733 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1480098733 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1480098733 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb" 1480098738 17091 559f388d601cc54898d17f9de70e2e87 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb" 1480098738 17066 253bfbb6e5fc3054bb423ea41ca809e2 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1480098806 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -128,11 +130,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1540554386 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1540554398 4127239 13ed65992737eca6d579db149732e944 ""
   "FIUBA_logo.jpg" 1545079704 26722 0816dfbaaa09e1e7ed51624b8b5fd34f ""
-  "resumen.aux" 1545177808 2133 e16e9b429af28a2fe88f1419b3cd0858 ""
-  "resumen.tex" 1545177807 9522 dac8842fce19e01aea621908e0f85efc ""
-  "resumen.toc" 1545177808 1630 4b959d79ac75c43a3b3d25d76a33e917 ""
+  "resumen.aux" 1545266330 2582 1631233dba225849f951ed8b7e9235d7 ""
+  "resumen.tex" 1545266329 14061 f575b1dbed4f420f23486a460e9abaf3 ""
+  "resumen.toc" 1545266330 1989 1ab542d79fa798e6360c3d9fdfa3aa9a ""
   (generated)
+  "resumen.log"
+  "resumen.toc"
   "resumen.pdf"
   "resumen.aux"
-  "resumen.toc"
-  "resumen.log"

@@ -192,17 +192,81 @@ $$\mathop{lim}_{ n \rightarrow \infty} \mathds{E} \bigg \{ \sum_{i=1}^n W_{ni}(X
 $$ \mathop{lim}_{n \rightarrow \infty} \mathds{E} \bigg \{  \mathop{max}_{1 \leq i \leq n} W_{ni}(X)\bigg \} $$
 
 \section{Clase 5 (5/10)}
-cap 8
 \subsection{Desigualdad de Hoeffding}
-8.2
+Sean $X_1, ..., X_n$ variables aleatoreas independientes y sean $a_i$ y $b_i$ tales que $\mathds{P}(a_i \leq X_i \leq b_i)=1$, y sea $S_n=\sum_{i=1}^n X_i$. Entonces, para cualquier $\epsilon > 0$ se cumplen:
+$$\mathds{P}(S_n - \mathds{E}[S_n] \geq \epsilon) \leq e^{-2 \epsilon^2 / \sum_{i=1}^n (b_i-a_i)^2}$$
+y también
+$$\mathds{P}(S_n - \mathds{E}[S_n] \leq - \epsilon) \leq e^{-2 \epsilon^2 / \sum_{i=1}^n (b_i-a_i)^2}$$
+
 \subsection{Cómo estimar L}
-Mis anotaciones del ppio + corollary 8.1 + lo que sigue justo después 
 
+Sea el estimador de $L$: $$\widehat{L}_{n,m}=\frac{1}{m} \sum_{j=1}^m \mathds{1} \bigg \{ g_n(X_{n+i}) \neq Y_{n+i} \bigg \}$$
+
+$\widehat{L}_{n,m}$ es un estimador insesgado, es decir, $\mathds{E}[\widehat{L}_{n,m}|D_n]=L_n$
+
+Aplicando la desigualdad de Hoeffding podemos deducir que:
+
+$$ \mathds{P}(|\widehat{L}_{n,m}-L_n|>\epsilon | D_n) \leq 2e^{-2m\epsilon^2} $$
+
+Es decir, independientemente de la distribución de $(X,Y)$ se puede acotar el error que tiene el estimador de $L_n$.
 \subsection{Cómo elegir clasificadores}
-Lo de que vapnik chervonenkis justifica que con los datos me acerco a la verdad absoluta del mundo y del universo.
-Lemma 8.2
-Teorema 8.3
 
+$C$ es una família de funciones $\phi:\mathds(R)^d \rightarrow \{0,1\}$
+
+$\phi^{*}_n$ es el clasificador de $C$ que minimiza la $L_n$ estimada: $$ \widehat{L_n}(\phi^{*}_n) \leq \widehat{L_n}(\phi) \text{ para todo } \phi \in C$$
+
+Así, según descubierto por Vapnik y Chervonenkis:
+
+$$L(\phi^{*}_n)-\mathop{inf}_{\phi \in C}L(\phi) \leq 2 \mathop{sup}_{\phi \in C} |\widehat{L_n}(\phi) - L(\phi)|$$
+
+$$|\widehat{L_n}(\phi^{*}_n) - L(\phi^{*}_n)| \leq \mathop{sup}_{\phi \in C} |\widehat{L_n}(\phi) - L(\phi)|$$
+
+Además, si $|C| \leq N$, tenemos que, para todo $\epsilon > 0$,
+
+$$ \mathds{P} \bigg \{ \mathop{sup}_{\phi \in C} |\widehat{L_n}(\phi) - L(\phi)|>\epsilon \bigg \} \leq 2Ne^{-2n\epsilon^2} $$
+
+Estos teoremas exhiben que utilizar el estimador de $L_n$ para elegir el $\phi$ dentro de una clase lleva a elegir funciones de decisión que minimizan $L$. Esto da fundamento teórico a los algoritmos de aprendizaje supervisado, en los cuales se utilizan métodos numéricos para buscar un $\phi$ que minimiza una estimación de la función de pérdida, la cual se calcula a partir de los datos de entrenamiento.
 \section{Clase 6 (12/10)}
-Cap 9 tiene Borel-catelli y eso
+\subsection{Lema Borel-Cantelli}
+Sea $A_n$ con $n=1,2,...$ una secuancia de ventos infinita.
+Si se da que $$ \sum_{n=1}^{\infty} \mathds{P}(A_n) < \infty $$
+Entonces: $$ \mathds{P}\big( \bigcap_{n=1}^{\infty} \bigcup_{m=n}^{\infty} A_m \big)=0 $$
+\subsection{Teorema de Glivenko-Cantelli}
+Sean $Z_1, ..., Z_n$ variables aleatorias identicamente distribuidas, con función de distribución $F$. Sea 
+$$F_n(z)=\frac{1}{n} \sum_{i=1}^n \mathds{1} \{ Z_i \leq z \}$$
+$$ \mathds{P} \bigg \{ \mathop{sup}_{z \in \mathds{R}} |F(z)-F_n(z)|>\epsilon \bigg \} \leq 8(n+1)e^{-n\epsilon^2/32}$$
+Por el lema Borel-Cantelli:
+$$ \mathop{lim}_{n \rightarrow \infty} \mathop{sup}_{z \in \mathds{R}} |F(z)-F_n(z)|=0 $$
+
+La desigualdad de Vapnik-Chervonenkis puede comprenderse como una generalización de este teorema para cuando $z \in \mathds{R}^d$ (en este teorema se requiere $F$, lo cual implica que $z \in \mathds{R}$)
+
+\subsection{Desigualdad Vapnik-Chervonenkis}
+\subsubsection{Definiciones previas}
+Sea $\mathds{A}$ un conjunto de conjuntos medibles. Sean $z_1, ...., z_n \in \mathds{R}^d$. Sea:
+$$ N_{\mathds{A}}(z_1, ..., z_n)=\bigg | \big \{ \{ z_1, ..., z_n\} \cap A; \cap A \in \mathds{A} \big \} \bigg | $$
+
+Sea entonces el N-avo coeficiente de destrozo/shattering/astillado de $\mathds{A}$:
+$$ s(\mathds{A},n) = \mathop{max}_{(z_1,...,z_n) \in \{ \mathds{R}^d \}^n} N_{\mathds{A}}(z_1, ..., z_n)$$
+
+$ s(\mathds{A},n)$ es la máxima cantidad de diferentes subconjuntos de n puntos que pueden ser ``pescados'' por la clase de conjuntos $\mathds{A}$. En cierta forma podría decirse que $ s(\mathds{A},n)$ es una medida de cuán ``versátil'', ``adaptable'' o ``expresiva'' $\mathds{A}$ es $\mathds{A}$.
+
+Se definen Además
+
+$$\nu(A)=\mathds{P}(Z_i \in A)$$
+$$\nu_n(A)=\frac{1}{n} \sum_{i=1}^n \mathds{1} \{ Z_i \in A \}$$
+
+Siendo $Z_i$ cualquier $Z_1, Z_2,... Z_n$ (son variables aleatorias en $ \mathds{R}^d $ identicamente distribuidas).
+
+Entonces la desigualdad Vapnik-Chervonenkis indica que, para cualquier medida de probabilidad $\nu$, clase de conjuntos $\mathds{A}$, $n$ y $\epsilon>0$:
+
+$$ \mathds{P} \big \{ \mathop{sup}_{A\in \mathds{A}} | \nu_n(A) - \nu(A) | > \epsilon \big \} \leq 8 s(\mathds{A},n)e^{-n\epsilon^2 / 32} $$
+
+De esta desigualdad me llaman la atención dos cosas:
+\begin{itemize}
+  \item Fundamenta el fenómeno de "overfitting", ya que la distancia entre la estimación de $\nu$ y el $\nu$ real son más distantes cuando aumenta la capacidad expresiva de $\mathds{A}$
+  \item Fundamenta el hecho de que el overfitting puede ser contrarrestado con más datos de entrenamiento, lo cual puede notarse en el hecho de que la cota decrece exponencialmente al crecer $n$.
+\end{itemize}
+
+\section{Clase 7 (19/10)}
+esta es complicada creo
 \end{document}

@@ -20,5 +20,10 @@
 \contentsline {section}{\numberline {5}Clase 5 (5/10)}{7}
 \contentsline {subsection}{\numberline {5.1}Desigualdad de Hoeffding}{7}
 \contentsline {subsection}{\numberline {5.2}C\IeC {\'o}mo estimar L}{7}
-\contentsline {subsection}{\numberline {5.3}C\IeC {\'o}mo elegir clasificadores}{7}
-\contentsline {section}{\numberline {6}Clase 6 (12/10)}{7}
+\contentsline {subsection}{\numberline {5.3}C\IeC {\'o}mo elegir clasificadores}{8}
+\contentsline {section}{\numberline {6}Clase 6 (12/10)}{8}
+\contentsline {subsection}{\numberline {6.1}Lema Borel-Cantelli}{8}
+\contentsline {subsection}{\numberline {6.2}Teorema de Glivenko-Cantelli}{9}
+\contentsline {subsection}{\numberline {6.3}Desigualdad Vapnik-Chervonenkis}{9}
+\contentsline {subsubsection}{\numberline {6.3.1}Definiciones previas}{9}
+\contentsline {section}{\numberline {7}Clase 7 (19/10)}{10}

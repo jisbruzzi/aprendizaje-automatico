@@ -268,5 +268,197 @@ De esta desigualdad me llaman la atención dos cosas:
 \end{itemize}
 
 \section{Clase 7 (19/10)}
-esta es complicada creo
+En esta clase empezamos a ver regresión.
+\subsection{Definiciones iniciales}
+$$ m(x)=\mathds{E}[Y|X=x] $$
+$$ m_n(x)=\sum_{i=1}^n W_{n,i}(x) Y_i $$
+\subsection{Algunos criterios para medir la calidad de $m_n(x)$}
+\subsubsection{Error de norma supremo}
+$$ ||m_n - m||_{\infty} = \mathop{sup}_{x \in C} | m_n(x)-m(x)| \text{ con } C \in \mathds{R}^d $$
+Mide el máximo error que comete $m_n$ en $C$, es decir, $m_n$ debe estar en un ``tubo'' que rodee a $m$.
+\subsubsection{Error LP}
+$$ ||m_n - m||_{p} = \int_{C} | m_n(x)-m(x)|^p dx $$
+El error LP suma el error que comete $m_n$ a lo largo de todo $C$. Generalmente se usa $p=2$.
+\subsection{4 paradigmas relacionados para estimar $m(x)$}
+A continuación se presentan métodos que responden a la siguiente forma: $$ m_n(x)= \sum_{i=1}^n W_{n,i}(x) Y_i$$
+
+Cada $W_{n,i}(x)$ representa el peso de $Y_i$ en el promedio ponderado.
+
+Debe cumplirse que:
+
+$$ \sum_{i=1}^n W_{n,i}(x) = 1 \text{ para todo $x$} $$
+\subsubsection{Promedios locales}
+Consiste en asignarle a $m_n(x)$ un valor que es el promedio de los $y_i$ que corresponden a los $k$ puntos $x_i$ más cercanos a $x$. Formalmente:
+
+Sean los pares $(X_{(i)},Y_{(i)})$ una permutación de los datos de entrenamiento $D_n$ tal que $$ || x-X_{(1)} || \leq || x-X_{(2)} || \leq ... \leq || x - X_{(n)} || $$
+Con esta permutación, se define $m_n$ como:
+$$ m_n(x)= \frac{1}{k} \sum_{i=1}^k Y_{(i)}$$
+Es decir que los pesos tienen los valores
+$$ W_{n,i}=\frac{1}{k} \mathds{1} \big \{  \text{ $X_i$ es uno de los $k$ vecinos más cercanos a $x$} \big \}$$
+
+Este método es una adaptación del algoritmo KNN para el caso de regresión.
+\subsubsection{Estimador kernel de Nadaraya - Watson}
+sea $K:\mathds{R}^d \rightarrow \mathds{R}^{+}$ un kernel.
+Se definen los pesos para este caso:
+$$ W_{n,i}(x)=\frac{ K \big ( \frac{x-X_i}{h} \big ) }{ \sum_{j=1}^n K \big ( \frac{x-X_j}{h} \big )} $$
+Algunos kernels útiles son:
+$$ K(x)=\mathds{1}\{ || x || \leq 1 \} $$
+$$ K(x)=e^{-||x||^2}$$
+Estos estimadores son una versión más interesante del caso anterior, ya que permiten establecer el peso de cada observación en función de su distancia a $x$, lo cual no hace el método anterior.
+
+\subsubsection{Particiones}
+Sea $\{A_{n,1}, A_{n,2}, ...\}$ una partición de $\mathds{R}^d$
+
+$$ W_{n,i}(x) = \frac{\mathds{1}\{ X_i \in A_{n,i} \}}{ \sum_{j=1}^{n} \mathds{1}\{ X_j \in A_{n,i} \}} $$
+
+Este método le asigna a los $x$ de una  misma partición el mismo valor, que es el promedio de los $Y_i$ correspondientes, es similar al método de promedios locales pero en este caso las particiones pueden ser independientes de $D_n$.
+
+\subsubsection{Modelado local}
+
+Según esta família de reglas, $g_n$ está definida con $l$ parámetros, es decir:
+
+$$ g( \cdot , \{ a_k \}_{k=1}^{l} ):\mathds{R}^d \rightarrow \mathds{R} $$
+
+Y los parámetros están elegidos de la siguiente forma:
+
+$$ \{ a_k(x) \}_{k=1}^l = \mathop{argmin}_{\{b_k\}_{k=1}^l} \sum_{i=1}^n K\bigg (\frac{x-X_i}{h} \bigg ) \cdot \bigg ( Y_i - g \big (x, \{ b_k \}_{k=1}^{l} \big ) \bigg )$$
+
+Así, se permite ``ajustar'' el promedio que genera el método Nadaraya-Watson por medio de una función con parámetros.
+
+Así, $g_n$ podría pertenecer a una família de polinomios: $$ g_n(x,\{ a_k \}_{k=1}^l)=\sum _{k=1}^{l} a_k \cdot x^{k-1}$$
+
+\subsubsection{Modelado global}
+
+Se tiene una partición del espacio como en el método de particiones. El modelado globales una generalización del método de particiones.
+
+Así, definimos:
+
+$$ \mathds{F}_n = \Bigg \{ \sum_{j} a_j \mathds{1} \{ x \in A_{n,j}: a_j \in \mathds{R} \} \Bigg \} $$
+
+$$ m_n = \mathop{argmin}_{f\in \mathds{F}_n} \Bigg \{ \frac{1}{n} \sum_{i=1}^n | f(X_i)-Y_i |^2 \Bigg \} $$
+
+\subsubsection{Minimos cuadrados penalizados}
+
+Se define un término de penalización $J_n(f)\geq 0$ que penaliza a $f$ según cuán violentamente cambia, permitiendo así elegir funciones $f$ que no hagan overfit sobre los datos de entrenamiento:
+
+$$ m_n=\mathop{argmin}_f \Bigg \{ \frac{1}{n} \sum_{i=1}^n \big (f(X_i)-Y_i \big )^2 + J_n(f) \Bigg \} $$
+
+Para el caso $d=1$, se utiliza como función de penalización $$ J_n(f)=\lambda_n \int |f^{(k)}(t)|^2 dt $$
+
+Se puede generalizar $J_n$ a campos vectoriales, la fórmula utiliza derivadas parciales. El objetivo del término $J_n(f)$ es penalizar a las $f$ que tienen curvas violentas, lo cual es usual cuando se ajustan datos de entrenamiento a un polinomio.
+
+\subsection{La maldición de la dimensionalidad}
+
+La maldición de la dimensionalidad consiste en el hecho de que, cuantas más dimensiones tienen los datos, menos significativa es la distancia entre ellos. Así, si se tiene un hipercubo de dimensión $d$ con puntos distribuidos de forma uniforme sobre cada dimensión, la mayoría de los puntos se ubicarán sobre los bordes del cubo y estarán a una distancia muy similar los unos de los otros. Este efecto es cada vez más pronunciado a medida que crece $d$.
+
+\subsection{Balance sesgo-varianza}
+
+$$ \mathds{E} \Big \{ |m_n(x)-m(x)|^2 \Big \} = \mathds{E} \Big \{ | m_n(x) - \mathds{E} \big \{ m_n(x) \big \} |^2  \Big \} + \Big | \mathds{E} \big \{m_n(x) \big \} -m(x) \Big |^2$$
+
+$$ \mathds{E} \Big \{ |m_n(x)-m(x)|^2 \Big \} = Var(m_n(x)) + |sesgo(m_n(x))|^2 $$
+
+Así, $var$ es la varianza de la variable aleatoria $m_n(x)$, es decir, cuánto "le cree" a los datos: un algoritmo de machine learning con alta varianza es más propenso a sufrir overfitting. Una alta varianza de $m_n(x)$ implica que el modificar $D_n$ cambia $m_n(x)$ de forma significativa.
+
+Por otro lado, el $sesgo$, cuantifica cuán "terco" es $m_n$. Un alto sesgo implica que incluso si la distribución de $D_n$ cambia, $m_n$ permanece similar. Esto está relacionado al fenómeno de underfitting.
+
+El error de un $m_n$ es la suma de ambas componentes, ambas crecen en condiciones opuestas. 
+
+\includegraphics[scale=0.65]{bias-variance.png}
+
+Ese gráfico está extraído de Gyorfi, muestra cómo se comportan el sesgo y la varianza al cambiar cuán detallado es un $g_n$ construído a partir de un kernel Nadaraya-Watson.
+
+\subsection{Cómo comparar $g_n$ cuando no se dispone de las distribuciones}
+
+\subsubsection{Método de resustitución}
+
+En el método de resustitución se eligen los parámetros $p$ de manera de que la función de regresión $m_{n,p}(x)$ minimice
+
+$$L(D_n) = \frac{1}{n} \sum_{i=1}^n | m_{n,p}(X_i)-Y_i |^2 $$
+
+Esto lleva a resultados demasiado optimistas, ya que no es otra cosa que usar los mismos datos para entrenar el algoritmo y para medir cuán bueno es. Así, $g_n$ funcionará peor que lo esperado al predecir nuevos pares $(X,Y)$.
+
+\subsubsection{Otro método de resustitución}
+
+Se divide el conjunto de datos $D_n$ en $D_{n_1}$ y $D_{n_2}$ de forma que $D_n=D_{n_1} \cap D_{n_2}$. Luego se elige $p$ minimizando $L(D_{n_1})$ y se utiliza $g(\cdot,D_{n_2})$ para realizar predicciones.
+
+\subsubsection{K-fold cross-validation (dividido de forma secuencial)}
+
+Se definen $k$ conjuntos de pares $D_{n,k}$ de forma que $|D_{n,k}|=\frac{n}{k}$  y que $\bigcup_{l=1}^{k}D_{n,l}=D_n$.
+
+Luego se eligen los parámetros $p$ minimizando
+
+$$ \frac{1}{k} \sum_{l=1}^{k} \frac{1}{n/k} \sum_{i=\frac{n}{k}(l-1)+1}^{\frac{n}{k} l} | m_{n-\frac{n}{k},p}(X_i,D_{n,l} -Y_i) |^2 $$
+
+Así, se tiene en cuenta el promedio de los errores de las $k$ particiones al mismo tiempo para obtener $p$.
+
+\subsection{Clase 8 (26/10): Ley de los grandes números}
+
+Sea $ f\in \mathds{F}_n$, y sea $f$ la función de regresión. Queremos minimizar el riesgo empírico $L_2$, es decir $$ \frac{1}{n} \sum_{i=1}^n |f(X_i)-Y_i|^2 $$
+
+Se definen $Z=(X,Y)$, $Z_i=(X_i,Y_i)$, $i=1, ..., n$, $g_f(x,y)=|f(x)-y|^2$, $\mathds{G}_n=\{ g_f :f \in \mathds{F}_n\}$
+
+El estimador del riesgo $L_2$ sólo es consistente sii $$ \mathop{sup}_{g\in\mathds{G}_n} \Bigg | \frac{1}{n} \sum_{i=1}^n g(Z_i) - \mathds{E}\{g(Z)\} \Bigg | \rightarrow 0 \text{ cuando } (n\rightarrow \infty) \text{ a.s. }$$
+
+\subsection{Desigualdades exponenciales básicas}
+Se cumple 
+
+$$ \mathds{P} \Bigg \{ \mathop{sup}_{g \in \mathds{G}_n} \Bigg | \frac{1}{n} \sum_{j=1}^{n} g(Z_j)-\mathds{E}\{ g(Z) \} \Bigg | > \epsilon \Bigg \} \leq 2 | \mathds{G}_n| e^{-\frac{2n\epsilon^2}{B^2}} $$
+
+Cuando $\mathds{G}_n$ es una clase finite y cumple
+$$ \sum_{n=1}^{\infty} |\mathds{G}_n| e^{- \frac{2n\epsilon^2}{B^2}} < \infty$$
+
+Para cualquier $\epsilon>0$
+
+Cuando $\mathds{G}_n$ no es una clase finita, puede ser posible encontrar un $\mathds{G}_{n,\epsilon}$ finito que cumpla que todos los elementos de la família infinita están a una distancia supremo menor que $\epsilon$ que cualquier elemento de la família finita.
+
+\subsection{Herramientas métricas}
+
+Sea $d$ una distancia entre funciones.
+
+Sean las bolas $B_{\epsilon}(g)=\{ g' \in g:d(g',g)<\epsilon \}$.
+
+Un cubrimiento de $G$ es cualquier $G'=\{ g_1,..., g_N \}$ finito tal que $G' \subset G $ y $G \subset \bigcup_{i=1}^N B_{\epsilon}(g_i)$.
+
+
+Sea el número de $\epsilon$ cubrimiento de $G$:
+$$\mathds{N}(\epsilon,G,d)=\mathds{N}_d(\epsilon,G)=
+\begin{cases}
+ \infty & \text{si no existe ningún $\epsilon$ cubrimiento de $G$ con respecto a $d$} \\
+
+ H & \text{en otro caso}\\
+\end{cases}$$
+
+$$H=\mathop{min}\{ n \text{ natural } : \text{ existe un $\epsilon$ cubrimiento de tamaño n de $G$ con respecto a d } \}$$
+
+Cualquier colección finita $\{ g_1, g_2, ..., g_n\} \subset G$ tal que $d(g_i,g_j)\geq\epsilon\forall i\neq j$ es un $\epsilon$ empaquetado de $G$ con respecto a $d$.
+
+Se define el número de $\epsilon$ empaquetado de $G$ con respecto a $d$ como $M(\epsilon,G,d)=M_d(\epsilon,G)$, que vale infinito para cualquier $n$ natural existe un $\epsilon$ empaquetado de $G$ de tamaño $n$. De lo contrario, vale
+
+$$ \mathop{max}\big \{ n\in \text{ naturales }: \{ g_1, ..., g_n \} \text{ es un $\epsilon$-empaquetado de $G$ con respecto a $d$} \big \} $$
+
+\subsection{Distancias posibles}
+\subsubsection{Distancia supremo}
+$$ d_{||\cdot||_{\infty}}(f,g)=\mathop{sup}_{z\in \mathds{R}^d}|f(z)-g(z)| $$
+\subsubsection{Distancia LP}
+
+$$ d_{L_p(\nu)}(f,g)=\bigg ( \int |f(z)|^p \nu(dz) \bigg )^{\frac{1}{p}}$$
+
+\subsection{Lema}
+
+Sea $n$ natural, y sea $G_n$ un conjunto de funciones $g:\mathds{R}^d \rightarrow [0,B]$ y $\epsilon > 0$. Entonces:
+
+$$
+\mathds{P}\Bigg \{ \mathop{sup}_{g\in \mathds{G}_n} \Big | \frac{1}{n} \sum_{j=1}^n g(Z_j)-\mathds{E}\{ g(Z) \} \Big | > \epsilon \Bigg \} \leq 2 \mathds{N}_{\infty} (\epsilon/3,\mathds{G}_n) e^{-\frac{2n\epsilon^2}{9B^2}}
+$$
+
+Además, si se cumple
+
+$$
+\sum_{n=1}^{\infty} \mathds{N}_{\infty} (\epsilon/3,\mathds{G}_n)e^{-\frac{2n\epsilon^2}{9B^2}}
+$$
+
+entonces también es se cumple
+
+$$ \mathop{sup}_{g\in\mathds{G}_n} \Bigg | \frac{1}{n} \sum_{i=1}^n g(Z_i) - \mathds{E}\{g(Z)\} \Bigg | \rightarrow 0 \text{ cuando } (n\rightarrow \infty) \text{ a.s. }$$
+
 \end{document}

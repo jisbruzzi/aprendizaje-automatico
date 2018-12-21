@@ -1,29 +1,53 @@
 \babel@toc {spanish}{}
-\contentsline {section}{\numberline {1}Clase 1 (31/8)}{2}
-\contentsline {section}{\numberline {2}Clase 2 (7/9)}{3}
-\contentsline {subsection}{\numberline {2.1}Definiciones iniciales}{3}
-\contentsline {subsubsection}{\numberline {2.1.1}Clasificador}{3}
-\contentsline {subsubsection}{\numberline {2.1.2}Calidad del clasificador}{3}
-\contentsline {subsubsection}{\numberline {2.1.3}Clasificador bayesiano}{3}
-\contentsline {subsubsection}{\numberline {2.1.4}Dataset de entrenamiento}{3}
-\contentsline {subsection}{\numberline {2.2}Clasificador bayesiano para M=2}{4}
-\contentsline {section}{\numberline {3}Clase 3 (14/9)}{4}
-\contentsline {subsection}{\numberline {3.1}Plug-in decision}{4}
-\contentsline {subsection}{\numberline {3.2}Convergencia debil y fuerte}{5}
-\contentsline {subsection}{\numberline {3.3}Reglas basadas en particiones}{5}
-\contentsline {subsection}{\numberline {3.4}La regla del histograma}{6}
-\contentsline {section}{\numberline {4}Clase 4 (28/9)}{6}
-\contentsline {subsection}{\numberline {4.1}El teorema de Stone}{6}
-\contentsline {subsubsection}{\numberline {4.1.1}Condici\IeC {\'o}n 1}{7}
-\contentsline {subsubsection}{\numberline {4.1.2}Condici\IeC {\'o}n 2}{7}
-\contentsline {subsubsection}{\numberline {4.1.3}Condici\IeC {\'o}n 3}{7}
-\contentsline {section}{\numberline {5}Clase 5 (5/10)}{7}
-\contentsline {subsection}{\numberline {5.1}Desigualdad de Hoeffding}{7}
-\contentsline {subsection}{\numberline {5.2}C\IeC {\'o}mo estimar L}{7}
-\contentsline {subsection}{\numberline {5.3}C\IeC {\'o}mo elegir clasificadores}{8}
-\contentsline {section}{\numberline {6}Clase 6 (12/10)}{8}
-\contentsline {subsection}{\numberline {6.1}Lema Borel-Cantelli}{8}
-\contentsline {subsection}{\numberline {6.2}Teorema de Glivenko-Cantelli}{9}
-\contentsline {subsection}{\numberline {6.3}Desigualdad Vapnik-Chervonenkis}{9}
-\contentsline {subsubsection}{\numberline {6.3.1}Definiciones previas}{9}
-\contentsline {section}{\numberline {7}Clase 7 (19/10)}{10}
+\contentsline {section}{\numberline {1}Clase 1 (31/8)}{3}
+\contentsline {section}{\numberline {2}Clase 2 (7/9)}{4}
+\contentsline {subsection}{\numberline {2.1}Definiciones iniciales}{4}
+\contentsline {subsubsection}{\numberline {2.1.1}Clasificador}{4}
+\contentsline {subsubsection}{\numberline {2.1.2}Calidad del clasificador}{4}
+\contentsline {subsubsection}{\numberline {2.1.3}Clasificador bayesiano}{4}
+\contentsline {subsubsection}{\numberline {2.1.4}Dataset de entrenamiento}{4}
+\contentsline {subsection}{\numberline {2.2}Clasificador bayesiano para M=2}{5}
+\contentsline {section}{\numberline {3}Clase 3 (14/9)}{5}
+\contentsline {subsection}{\numberline {3.1}Plug-in decision}{5}
+\contentsline {subsection}{\numberline {3.2}Convergencia debil y fuerte}{6}
+\contentsline {subsection}{\numberline {3.3}Reglas basadas en particiones}{6}
+\contentsline {subsection}{\numberline {3.4}La regla del histograma}{7}
+\contentsline {section}{\numberline {4}Clase 4 (28/9)}{7}
+\contentsline {subsection}{\numberline {4.1}El teorema de Stone}{7}
+\contentsline {subsubsection}{\numberline {4.1.1}Condici\IeC {\'o}n 1}{8}
+\contentsline {subsubsection}{\numberline {4.1.2}Condici\IeC {\'o}n 2}{8}
+\contentsline {subsubsection}{\numberline {4.1.3}Condici\IeC {\'o}n 3}{8}
+\contentsline {section}{\numberline {5}Clase 5 (5/10)}{8}
+\contentsline {subsection}{\numberline {5.1}Desigualdad de Hoeffding}{8}
+\contentsline {subsection}{\numberline {5.2}C\IeC {\'o}mo estimar L}{8}
+\contentsline {subsection}{\numberline {5.3}C\IeC {\'o}mo elegir clasificadores}{9}
+\contentsline {section}{\numberline {6}Clase 6 (12/10)}{9}
+\contentsline {subsection}{\numberline {6.1}Lema Borel-Cantelli}{9}
+\contentsline {subsection}{\numberline {6.2}Teorema de Glivenko-Cantelli}{10}
+\contentsline {subsection}{\numberline {6.3}Desigualdad Vapnik-Chervonenkis}{10}
+\contentsline {subsubsection}{\numberline {6.3.1}Definiciones previas}{10}
+\contentsline {section}{\numberline {7}Clase 7 (19/10)}{11}
+\contentsline {subsection}{\numberline {7.1}Definiciones iniciales}{11}
+\contentsline {subsection}{\numberline {7.2}Algunos criterios para medir la calidad de $m_n(x)$}{11}
+\contentsline {subsubsection}{\numberline {7.2.1}Error de norma supremo}{11}
+\contentsline {subsubsection}{\numberline {7.2.2}Error LP}{11}
+\contentsline {subsection}{\numberline {7.3}4 paradigmas relacionados para estimar $m(x)$}{12}
+\contentsline {subsubsection}{\numberline {7.3.1}Promedios locales}{12}
+\contentsline {subsubsection}{\numberline {7.3.2}Estimador kernel de Nadaraya - Watson}{12}
+\contentsline {subsubsection}{\numberline {7.3.3}Particiones}{13}
+\contentsline {subsubsection}{\numberline {7.3.4}Modelado local}{13}
+\contentsline {subsubsection}{\numberline {7.3.5}Modelado global}{13}
+\contentsline {subsubsection}{\numberline {7.3.6}Minimos cuadrados penalizados}{14}
+\contentsline {subsection}{\numberline {7.4}La maldici\IeC {\'o}n de la dimensionalidad}{14}
+\contentsline {subsection}{\numberline {7.5}Balance sesgo-varianza}{14}
+\contentsline {subsection}{\numberline {7.6}C\IeC {\'o}mo comparar $g_n$ cuando no se dispone de las distribuciones}{15}
+\contentsline {subsubsection}{\numberline {7.6.1}M\IeC {\'e}todo de resustituci\IeC {\'o}n}{15}
+\contentsline {subsubsection}{\numberline {7.6.2}Otro m\IeC {\'e}todo de resustituci\IeC {\'o}n}{16}
+\contentsline {subsubsection}{\numberline {7.6.3}K-fold cross-validation (dividido de forma secuencial)}{16}
+\contentsline {subsection}{\numberline {7.7}Clase 8 (26/10): Ley de los grandes n\IeC {\'u}meros}{16}
+\contentsline {subsection}{\numberline {7.8}Desigualdades exponenciales b\IeC {\'a}sicas}{17}
+\contentsline {subsection}{\numberline {7.9}Herramientas m\IeC {\'e}tricas}{17}
+\contentsline {subsection}{\numberline {7.10}Distancias posibles}{18}
+\contentsline {subsubsection}{\numberline {7.10.1}Distancia supremo}{18}
+\contentsline {subsubsection}{\numberline {7.10.2}Distancia LP}{18}
+\contentsline {subsection}{\numberline {7.11}Lema}{18}

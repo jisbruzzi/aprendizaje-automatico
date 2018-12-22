@@ -391,7 +391,7 @@ $$ \frac{1}{k} \sum_{l=1}^{k} \frac{1}{n/k} \sum_{i=\frac{n}{k}(l-1)+1}^{\frac{n
 
 Así, se tiene en cuenta el promedio de los errores de las $k$ particiones al mismo tiempo para obtener $p$.
 
-\subsection{Clase 8 (26/10): Ley de los grandes números}
+\section{Clase 8 (26/10): Ley de los grandes números}
 
 Sea $ f\in \mathds{F}_n$, y sea $f$ la función de regresión. Queremos minimizar el riesgo empírico $L_2$, es decir $$ \frac{1}{n} \sum_{i=1}^n |f(X_i)-Y_i|^2 $$
 
@@ -461,19 +461,68 @@ entonces también es se cumple
 
 $$ \mathop{sup}_{g\in\mathds{G}_n} \Bigg | \frac{1}{n} \sum_{i=1}^n g(Z_i) - \mathds{E}\{g(Z)\} \Bigg | \rightarrow 0 \text{ cuando } (n\rightarrow \infty) \text{ a.s. }$$
 
-Este lema indica que con una fam�lia $\mathds{G}_n$ discreta se pueden lograr funciones de regresión consrstentes
+Este lema indica que con una família $\mathds{G}_n$ discreta se pueden lograr funciones de regresión consistentes.
 
-\section{Clase 8 (2/11)}
-\subsection{Dimensi�n Vapnik-Chervonenkis}
-escribir acá la definici�n(def9.6 pag144)
+\section{Clase 9 (2/11)}
+\subsection{Dimensión Vapnik-Chervonenkis}
+Retomando el concepto de ``N-avo coeficiente de destrozo / shattering / astillado'', se añade la definición de ``Dimensión Vapnik - Chervonenkis'':
+
+$$dim_ {VC}(\mathds{A}) = \mathop{sup} \big \{ n \text{ natural }: s(\mathds{A},n)=2^n \big \}$$
+
+$s(\mathds{A},n)=2^n$ implica que la família $\mathds{A}$ puede destrozar algún conjunto de $n$ puntos, es decir, que existen conjuntos pertenecientes a $\mathds{A}$ que permiten elegir cada una de las $2^n$ combinaciones posibles de $n$ puntos.
+
+Así, la dimensión Vapnik-Chervonenkis indica la cantidad máxima de puntos que $\mathds{A}$ puede destrozar. Así, esta dimensión es un indicador de la ``capacidad expresiva'' o la ``versatilidad'' de $\mathds{A}$.
+
 \subsection{Lema de Sawer}
-copiar del cuaderno. Relaciona shatter coef"icient y vc dimension
-Lo de downshift te lo regalo
-Pag 148 teorema 9.4
-La versi�n L1 y Lp del cuaderno
-\section{Clase 9 (9/11)}
 
+$$
+s(\mathds{A},n)=\begin{cases}
+  2^n & \text{ si } n\leq dim_{VC}(\mathds{A}) \\
+  \sum_{i=0}^{dim_{VC}(\mathds{A})} \binom{n}{i} & \text{ si } n > dim_{VC}(\mathds{A})
+\end{cases}
+$$
+Tal como explicado en los párrafos anteriores, $\mathds{A}$ destroza todos los conjuntos de cardinalidad menor a $dim_{VC}(\mathds{A})$, y el coeficiente de destrozo más allá de ese "umbral" sólo crece de forma polinómica (esto, si la dimensión Vapnkik-Chervonenkis es finita).
 
+\subsection{Lema}
+Sea $\mathds{G}$ una clase de funciones $g:\mathop{R}^d \rightarrow [0,B]$ y sea $\mathds{G}^{+} = \big \{ \{ (z,t)\in \mathop{R}^d \times \mathop{R}; t\leq g(z) \}: g\in\mathds{G} \big \}$. Así, es posible referirnos a la dimensión Vapnik-Chervonenkis de $\mathds{G}^{+}$. 
 
+Si $dim_{VC}(\mathds{G}^{+}) \geq 2$, $p\geq 1$, $0<\epsilon<\frac{B}{4}$, con $\nu$ una medida de probabilidad sobre $\mathds{R}^d$; entonces:
 
+$$
+\mathds{M}(\epsilon,\mathds{G},||\cdot||_{L_p(\nu)})\leq 3 \bigg( \frac{2eB^p}{\epsilon^p} log \frac{3eB^p}{\epsilon^p} \bigg)^{dim_{VC}(\mathds{G}^{+})}
+$$
+\section{Clase 10 (9/11)}
+\subsection{Teorema}
+Si $\mathds{A}$ es un conjunto de subconjuntos de $\mathds{R}^d$ con dimensión Vapnik - Chervonenkis finita, entonces para todo $n$ vale que:
+
+$$
+s(\mathds{A},n)\leq(n+1)^{dim_{VC}(\mathds{A})}
+$$
+Este teorema también demuestra que el coeficiente de destrozo crece como mucho polinomicamente.
+
+\subsection{Princípio de mínimos cuadrados}
+Elegir un $f$ entre todas las funciones posibles lleva a overfitting, lo cual no es consistente. Así, se debe buscar un $f$ perteneciente a una clase de funciones ``adecuadas'' $\mathds{F}_n$.
+
+Sea $\mathds{F}_n=\mathds{F}_n(D_n)$ una família de funciones $f:\mathds{R}^d \rightarrow \mathds{R}$ dependeientes en los datos $D_n$. Si $m_n$ cumple
+
+$$
+m_n(\cdot) = \mathop{argmin}_{f\in\mathds{F}_n} \frac{1}{n} \sum_{j=1}^n | f(X_j) - Y_j |^2
+$$
+
+entonces
+
+$$
+\int |m_n(x) - m(x)|^2 \mu(dx) \leq A + B
+$$
+
+$$
+A=2 \mathop{sup}_{f\in\mathds{F}_n} \Big| \frac{1}{n} \sum_{j=1}^n |f(X_j)-Y_j|^2 -\mathds{E}[ (f(X)-Y)^2 ] \Big|
+$$
+
+$$
+B=\mathop{inf}_{f\in\mathds{F}_n} \int | f(x)-m(x) |^2 \mu(dx)
+$$
+
+\section{Clase 11 (16/11)}
+Copiar el teorema 9.1  pag 136 y después algo de la pag 152
 \end{document}

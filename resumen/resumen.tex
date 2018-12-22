@@ -524,5 +524,21 @@ B=\mathop{inf}_{f\in\mathds{F}_n} \int | f(x)-m(x) |^2 \mu(dx)
 $$
 
 \section{Clase 11 (16/11)}
-Copiar el teorema 9.1  pag 136 y después algo de la pag 152
+\subsection{Cota de la diferencia entre el error estimado y el error real}
+Sea $\mathds{G}$ una família de funciones $g:\mathds{R}^d\rightarrow [0,B]$. Para cada $n$ natural y $\epsilon>0$ vale que:
+
+$$
+\mathds{P}\Bigg( \mathop{sup}_{g\in\mathds{G}} \big| \frac{1}{n} \sum_{i=1}^n g(Z_i) - \mathds{E}[g(Z)] \big| >\epsilon \Bigg)
+\leq
+8\mathds{E}\Bigg[ \mathds{N}_1(\frac{\epsilon}{8},\mathds{G},Z^{(n)}) \Bigg] e^{-n\epsilon^2/(128B^2)}
+$$
+
+Donde $ \mathds{N}_1(\frac{\epsilon}{8},\mathds{G},Z^{(n)}) $ es el número de $\epsilon$-cubrimiento de la família $\mathds{G}$ respecto de la norma $L_1$ basado en los puntos $Z^{(n)}$.
+\subsection{Dimensión de Vapnik-Chervonenkis de un espacio vectorial de funciones}
+Sea $\mathds{G}$ un espacio vectorial de dimensión $r$  de funciones $g:\mathds{R}^d\rightarrow\mathds{R}$ y sea $$\mathds{A}=\Big\{ \{ z:g(z)\geq 0 \} : g\in\mathds{G}\Big\}$$
+Enontces $$dim_{VC}(\mathds{A})\leq r$$
+Esto demuestra que la dimensión vapnik-chervonenkis está limitada por la forma en que se construye la $g$. Si está construída a partir de un espacio de funciones de una cierta dimensión, $g$ no puede ser más ``expresiva'' de lo que le permite esa dimensión.
+
+\section{Clase 12 (23/11)}
+\section{Clase 13 (7/12)}
 \end{document}

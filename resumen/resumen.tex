@@ -539,6 +539,241 @@ Sea $\mathds{G}$ un espacio vectorial de dimensión $r$  de funciones $g:\mathds
 Enontces $$dim_{VC}(\mathds{A})\leq r$$
 Esto demuestra que la dimensión vapnik-chervonenkis está limitada por la forma en que se construye la $g$. Si está construída a partir de un espacio de funciones de una cierta dimensión, $g$ no puede ser más ``expresiva'' de lo que le permite esa dimensión.
 
-\section{Clase 12 (23/11)}
-\section{Clase 13 (7/12)}
+
+\section{Capítulo 10 de Gyorfi (clases 12 y 13) (23/11 y 7/12)}
+\subsection{Nociones generales: el princípio de cuadrados mínimos}
+La idea del princípio de cuadrados mínimos es estimar el riesgo $L_2$:
+$$
+\mathds{E}[(f(X)-Y)^2]
+$$
+utilizando el riesgo empírico $L_2$:
+$$
+\frac{1}{n} \sum_{j=1}^n | f(X_j) -Y_j |^2
+$$
+
+Sabemos que la función de regresión $m$ satisface que 
+$$
+\mathds{E}[(m(X)-Y)^2] = \mathop{inf}_{f:\mathds{R}^d \rightarrow \mathds{R}} \mathds{E}[(f(X)-Y)^2]
+$$
+
+Como no disponemos de las distribuciones de $X$ e $Y$, sino unicamente de observaciones, estimamos $m$ por medio de $m_n$, que, de forma análoga a la ecuación anterior, satisface
+$$
+\frac{1}{n} \sum_{j=1}^n | m_n(X_j) -Y_j |^2 
+= 
+\mathop{min}_{f\in\mathds{F}_n}
+\frac{1}{n} \sum_{j=1}^n | f(X_j) -Y_j |^2
+$$
+con $m_n\in\mathds{F}_n$ . Es decir, $m_n$ es la función perteneciente a la família $\mathds{F}_n$ que minimiza el riesgo empírico $L_2$.
+Se utiliza $F_n\subset \{ f:\mathds{R}^d \rightarrow \mathds{R}\}$ en vez de $\{ f:\mathds{R}^d \rightarrow \mathds{R}\}$ (es decir, todos los campos escalares posibles) porque si no se restringe $m_n$, se obtiene un campo escalar que simplemente interpola los datos $(X_i,Y_i)$, lo cual no es consistente.
+La diferencia entre $m$ y $m_n$ (cuando $m_n$ fue elegida minimizando el riesgo empírico $L_2$) está acotada de la siguiente forma:
+$$
+\int |m_n(x)-m(x)|^2 \mu(dx) \leq A + B
+$$
+$$
+A=2\mathop{sup}_{f\in\mathds{F}_n} \Bigg| \frac{1}{n}\sum_{j=1}^n |f(X_j)-Y_j|^2 - \mathds{E}[(f(X)-Y)^2] \Bigg|
+$$
+$$
+B=\mathop{inf}_{f\in\mathds{F}_n} \int |f(x)-m(x)|^2 \mu(dx)
+$$
+Aquí $A$ representa el error de estimación y $B$ es el error de aproximación. El error de estimación representa la distancia entre el riesgo $L_2$ de la estimación $m_n$ y el de $m^{*}$, que es el mejor estimador de la família $\mathds{F}_n$. Esta diferencia existe debido al hecho de que disponemos de datos de entrenamiento $(X_i,Y_i)$ en vez de las distribuciones de $X$ e $Y$. El error de aproximación es la diferencia entre $m^{*}$ (el mejor estimador para $X$ e $Y$) y la regresión $m$. Esta diferencia existe debido a la naturaleza de la família $\mathds{F}_n$: las restricciones que impone ``alejan'' a $m^{*}$ de $m$. A continuación se exhibe una representación visual de este teorema.
+
+
+\includegraphics[scale=0.65]{teorema-visual.png}
+
+
+El princípio de cuadrados mínimos sólo es universalmente consistente si $A+B$ converge a 0 para las distribuciones $(X,Y)$ con $\mathds{E}[Y^2]<\infty$.
+El error de aproximación tiende a 0 porque, si $\mathds{F}_n$ es tal que $\mathds{F}_n \subset \mathds{F}_{n+1}$ para todo $n$, entonces vale para toda medida de probabilidad $\mu$
+$$
+\mathop{lim}_{n\rightarrow\infty}
+\mathop{inf}_{f\in\mathds{F}_n}
+\int|f(x)-m(x)|^2 \mu(dx)=0
+$$
+\subsection{Teorema 1}
+Sea $\mathds{F}_n$ una clase de funciones $f:\mathds{R}^d\rightarrow\mathds{R}$. Si $m_n$ satisface las siguientes condiciones:
+$$
+\hat{m}_n \in \mathds{F}_n 
+\text{ cumple }
+\frac{1}{n} \sum_{j=1}^n | \hat{m}_n(X_j) -Y_j |^2 
+= 
+\mathop{min}_{f\in\mathds{F}_n}
+\frac{1}{n} \sum_{j=1}^n | f(X_j) -Y_j |^2
+$$
+$$
+m_n(x)=T_{\beta_n} \hat{m}_n(x)
+$$
+Donde $T_{\beta_n \hat{m}_n(x)}$ es la versión truncada de $\hat{m}_n(x)$, que corre entre $-\beta_n$ y $\beta_n$.
+\subsubsection{Teorema 1a}
+Si se cumplen
+$$
+\mathop{lim}_{n\rightarrow\infty} \beta_n = \infty
+$$
+$$
+\mathop{lim}_{n\rightarrow\infty} 
+\mathop{inf}_{f\in\mathds{F}_n, ||f||_{\infty}  \leq \beta_n} 
+\int
+|f(x)-m(x)|^2 \mu(dx)=0
+\text{ a.s. }
+$$
+$$
+\mathop{lim}_{n\rightarrow\infty} 
+\mathop{sup}_{f\in T_{\beta_n}\mathds{F}_n} 
+\Bigg|
+\frac{a}{n} \sum_{j=1}^n |f(X_j)-G_{j,L}|^2
+-
+\mathds{E}[(f(X)-Y_L)^2]
+\Bigg| = 0
+\text{ a.s. para todo $L>0$}
+$$
+Donde $Y_{j,L}=T_L{Y_j}$ y además $Y_L=T_L{Y}$
+Entonces:
+$$
+\mathop{lim}_{n\rightarrow\infty} 
+\int |m_n(x)-m(x)|^2 \mu(dx)
+= 0
+\text{ a.s. }$$
+Lo cual equivale a decir que $m_n$ es un estimador fuertemente y universalmente consistente.
+\subsubsection{Teorema 1b}
+Si se cunplen
+$$
+\mathop{lim}_{n\rightarrow\infty} \beta_n = \infty
+$$
+$$
+\mathop{lim}_{n\rightarrow\infty} 
+\mathds{E} \Bigg[
+\mathop{inf}_{f\in\mathds{F}_n, ||f||_{\infty}  \leq \beta_n} 
+\int
+|f(x)-m(x)|^2 \mu(dx)
+\Bigg]
+=0
+\text{ a.s. }
+$$
+$$
+\mathop{lim}_{n\rightarrow\infty} 
+\mathds{E} \Bigg[
+\mathop{sup}_{f\in T_{\beta_n}\mathds{F}_n} 
+\Bigg|
+\frac{a}{n} \sum_{j=1}^n |f(X_j)-G_{j,L}|^2
+-
+\mathds{E}[(f(X)-Y_L)^2]
+\Bigg| 
+\Bigg]
+= 0
+\text{ a.s. para todo $L>0$}
+$$
+Entonces:
+$$
+\mathop{lim}_{n\rightarrow\infty} \mathds{E}
+\Bigg[
+\int |m_n(x)-m(x)|^2 \mu(dx)
+\Bigg] = 0
+\text{ a.s. }$$
+Lo cual equivale a decir que $m_n$ es un estimador debilmente y universalmente consistente.
+
+Nótese que la diferencia entre el teorema 1b y el teorema 1a es únicamente la aplicación del operador 
+$\mathds{E}$ luego de $lim$.
+
+\subsection{Teorema 2}
+Sean $\psi_1, \psi_2... :\mathds{R}^d\rightarrow\mathds{R}$ funciones acotadas. Si el conjunto de funciones
+$$
+\bigcup_{k=1}^{\infty}
+\Bigg\{
+\sum_{j=1}^k a_j\psi_j(x):a_1,...,a_k \in \mathds{R}  
+\Bigg\}
+$$
+es denso en $L_2(\mu)$ siendo $\mu$ cualquier medida de probabilidad sobre $\mathds{R}^d$. Sea la estimación de la regresión $\hat{m}_n$ como una función que minimiza el riesgo empírico $L_2$ con $\hat{m}_n \in \mathds{F}_n$ y 
+$$
+\mathds{F}_n = \Bigg\{ \sum_{j=1}^{K_n} a_j\psi_j(x):a_1, ..., a_{K_n} \in \mathds{R}\Bigg\}
+$$
+sea entonces $m_n(x)=T_{\beta_n} \hat{m}_n(x)$.
+Así, $K_n$ indica la dimensión del espacio vectorial de funciones $\mathds{F}_n$ y $\beta_n$ el valor máximo que puede tomar $|m_n(x)|$.
+\subsubsection{Teorema 2a}
+Si $\mathds{E}[Y^2]<\infty$ y $K_n$ y $\beta_n$ satisfacen:
+$$
+K_n\rightarrow\infty
+\text{, }
+\beta_n\rightarrow\infty
+\text{ y además }
+\frac{ K_n \beta_n^4 \mathop{log} \beta_n }{n}\rightarrow 0
+$$
+entonces
+$$
+\mathds{E}
+\Bigg[ 
+\int 
+(m_n(x)-m(x))^2
+\mu(dx)
+\Bigg]
+\rightarrow 0
+$$
+es decir, $m_n$ es debilmente y universalmente consistente.
+\subsubsection{Teorema 2b}
+Si se cumplen todas las condiciones del teorema 2a y además se cumple
+$$
+\frac{\beta_n^4}{n^{1-\delta}}\rightarrow 0 \text{ para algún $\delta>0$}
+$$
+entonces
+$$
+\int (m_n(x)-m(x))^2 \mu(dx) \rightarrow 0 \text{ a.s. }
+$$
+es decir, el estimador es fuertemente y universalmente consistente
+\subsection{Estimar utilizando polinomios por partes}
+En este caso, se define una partición de $\mathds{R}^d$:
+$$
+P_n=\{ A_{n,1}, A_{n,2}, ..., A_{n,K_n} \}
+$$
+
+Se utiliza $\mathds{F}_n$ definida como:
+$$
+\mathds{F}_n
+=
+\Bigg\{
+  f:f(x)
+  =
+  \sum_{j=1}^{K_n} 
+    p_j(x) 
+    \cdot 
+    \mathds{1}\{x \in A_{n,j}\}  
+  \text{ con }
+  p_j \in \mathds{G}_M
+\Bigg\}
+$$
+Con $\mathds{G}_M$ el conjunto de polinomios de grado $M$ o menor, y $|P_n|=K_n$.
+
+Se elige $m_n\in\mathds{F}_n$, siendo esta la función de $\mathds{F}_n$ que minimiza el riesgo empírico $L_2$.
+
+Este método de estimación cumple los siguientes teoremas, deducidos de los anteriores:
+\subsubsection{Teorema 3a}
+Definidos $M$, $\beta_n$, $K_n$ y $P_n$ como más arriba, si se cumple
+$$
+K_n\rightarrow\infty
+\text{, }
+\beta_n\rightarrow\infty
+\text{ y además }
+\frac{ K_n \beta_n^4 \mathop{log} \beta_n }{n}\rightarrow 0
+$$
+y también se cumple
+$$
+\mathop{max}_{j=1,...,K_n} diam(A_{n,j}) \rightarrow 0
+$$
+entonces
+$$
+\mathds{E}
+\Bigg[ 
+\int 
+(m_n(x)-m(x))^2
+\mu(dx)
+\Bigg]
+\rightarrow 0
+$$
+
+Así, este teorema indica que el tamaño de las particiones debe ir cayendo a medida que crece $n$ para que $m_n$ se acerque a $m$.
+\subsubsection{Teorema 3b}
+Si se cumplen todas las condiciones del teorema 3a y además 
+$$
+\frac{\beta_n^4}{n^{1-\delta}}\rightarrow 0 \text{ para algún $\delta>0$}
+$$
+entonces
+$$
+\int (m_n(x)-m(x))^2 \mu(dx) \rightarrow 0 \text{ a.s. }
+$$
 \end{document}

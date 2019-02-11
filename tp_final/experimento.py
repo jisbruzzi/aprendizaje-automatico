@@ -1,3 +1,6 @@
+import logging
+logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
+
 """
 Genero funciones entre -1,1,-1,1; con una cantidad azarosa de polinomios de Lagrange encastradas.
 
@@ -83,20 +86,26 @@ def suma_kernelizada(kernel,d,puntos,ys):
             x=np.asarray([[x]])
         if len(x.shape)==1:
             x=np.reshape(x,(-1,1))
+        
         if x.shape[1]!=d:
             raise Exception("La matriz proporcionada tiene "+str(x.shape[1])+" columnas en vez de "+str(d))
         rets=[]
         
         for valor_x in x:
-            
-            distancias=np.power(np.sum(np.power(puntos-valor_x,2), axis=1),0.5)
+            distancias=np.linalg.norm(puntos-valor_x,axis=1)
             valores_kernel=kernel(distancias)
             factores=np.divide(valores_kernel,np.sum(valores_kernel))
-            rets.append(np.sum(ys*factores))
+            ret=np.sum(ys*factores)
+            if math.isnan(ret):
+                ret=0.0
+            rets.append(ret)
+            
+                
         return rets
     return f
 
 def generar_polinomio_kernel(kernel,d=1):
+    
     cantidad_puntos=randint(5,8)*d
     puntos=np.random.uniform(-1,1,(cantidad_puntos,d))
     ys=np.random.uniform(-1,1,cantidad_puntos)
@@ -128,9 +137,9 @@ def sumar_ruido(m,sigma):
     def f(x):
         m_x=m(x)
         s_x=sigma(x)
-        return norm.rvs(loc=m_x, scale = abs(s_x), size=1)[0]
+        return norm.rvs(loc=m_x, scale = np.abs(s_x), size=1)[0]
     def f_muchos(x):
-        return np.asarray([f(y) for y in x])
+        return np.asarray([f(np.reshape(y,(1,-1))) for y in x])
     return f_muchos
 
 
@@ -153,15 +162,74 @@ def generar_predictor_a_partir_de_datos(funcion_original,funcion_ruido,n,d,kerne
 
 
 import mcint
-def estimar_error_L2(f1,f2,d,precision=100):
+def estimar_error_L2(f1,f2,d,precision=1000):
     def f(x):
-        return np.power(np.asarray(f1(x))-np.asarray(f2(x)),2)
+
+        r= np.power(np.asarray(f1(x))-np.asarray(f2(x)),2)
+        return r
     def sampler():
         while True:
-            yield np.random.uniform(-1,1,(1,d))
+            u=np.random.uniform(-1,1,(1,d))
+            yield u
+    r=mcint.integrate(f,sampler(),measure=1.0,n=precision)
+    return r
 
-    return mcint.integrate(f,sampler(),measure=1.0,n=precision)
+def kernel_naive(x):
+    return np.array(abs(x)<=1,dtype=np.float64)
 
+"""
+Encuentra la media del error L2 promediando el obtenido a partir de estimar_error_L2 para q regresiones y qq estimaciones de la regresión para cada q (obtenida cada una a partir de )
+"""
+def encontrarE(n,d,q=100,qq=3,kernel_prediccion=ancho_kernel(kernel_naive,0.1)):
+    logging.info("Voy a calcular E para n={}, d={}, q={}, qq={}".format(n,d,q,qq))
+    suma_estimaciones_L2 = .0
+    cantidad_estimaciones_L2 = 0
+    suma_errores_estimaciones_L2=.0
+    for m_s in range(q):
+        m = generar_polinomio_kernel(kernel_gausiano,d)
+        for m_n_s in range(qq):
+            logging.info("Corro el experimento número {} de {}".format(m_s*qq+m_n_s,q*qq))
+            sigma = generar_polinomio_kernel(kernel_gausiano,d)
+            m_n = generar_predictor_a_partir_de_datos(m,sigma,n,d,kernel_prediccion)
+            estimacion_L2, error=estimar_error_L2(m,m_n,d)
+            suma_estimaciones_L2+=estimacion_L2
+            if math.isnan(suma_errores_estimaciones_L2):
+                suma_errores_estimaciones_L2=.0
+            if math.isnan(suma_estimaciones_L2):
+                suma_estimaciones_L2=.0
+            suma_errores_estimaciones_L2+=error
+            cantidad_estimaciones_L2+=1
+
+    promedio_estimaciones_L2=float(suma_estimaciones_L2)/float(cantidad_estimaciones_L2)
+
+    error_promedio_estimaciones_L2=float(suma_errores_estimaciones_L2)/float(cantidad_estimaciones_L2)
+
+    return {
+        "suma_estimaciones_L2":suma_estimaciones_L2,
+        "suma_errores_estimaciones_L2":suma_errores_estimaciones_L2,
+        "cantidad_estimaciones_L2":cantidad_estimaciones_L2,
+        "promedio_estimaciones_L2":promedio_estimaciones_L2, 
+        "error_promedio_estimaciones_L2":error_promedio_estimaciones_L2,
+        "n":n,
+        "d":d,
+        "q":q,
+        "qq":qq
+    }
+
+import pickle
+from time import gmtime, strftime
+hs=strftime("%d-%b-%Y-%H-%M-%S", gmtime())
+
+Es=[]
+for d in [1,2,3,10,30,100]:
+    for i in range(100):
+        Es.append(encontrarE(100*(i+1),d))
+    with open("salida_experimento_{}------2.pickle".format(hs),"wb") as f:
+        pickle.dump(Es,f)
+
+
+
+"""
 
 
 r=frange(-0.99,0.99,0.001)
@@ -171,7 +239,7 @@ poli_partes=generar_polinomio_kernel(kernel_gausiano)
 print("ruido:")
 ruido=generar_poli_partes_1d()
 y=poli_partes(np.asmatrix(r).T)
-predictor=generar_predictor_a_partir_de_datos(poli_partes,ruido,1000,1,ancho_kernel(kernel_polinomico(1),0.2))
+predictor=generar_predictor_a_partir_de_datos(poli_partes,ruido,1000,1,ancho_kernel(kernel_naive,0.2))
 y_predicho=predictor(r)
 plt.plot(r,y)
 plt.scatter(r,y_predicho)
@@ -181,6 +249,8 @@ plt.show()
 print("Empiezo a calcular la diferencia")
 resultado,error=estimar_error_L2(predictor,poli_partes,1,precision=100000)
 print(resultado,error)
+"""
+
 
 
 """

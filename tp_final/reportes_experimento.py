@@ -54,7 +54,7 @@ def calcular_k_c_cideal_para_d(d):
         return c*(x**(-k))
     return np.asscalar(k), np.asscalar(c), funcional(k), c_ideal, funcion_ideal, funcion_real
 
-ds=[1,2,3,10,30]
+ds=[1,2,3,4,6,8,10,30]
 ks,cs,es,c_ideales,funciones_ideales,funciones_reales = zip(*[
     calcular_k_c_cideal_para_d(d) for d in ds
 ])

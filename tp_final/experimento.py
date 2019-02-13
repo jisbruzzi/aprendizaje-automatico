@@ -221,9 +221,9 @@ from time import gmtime, strftime
 hs=strftime("%d-%b-%Y-%H-%M-%S", gmtime())
 
 Es=[]
-for d in [1,2,3,10,30,100]:
-    for i in range(100):
-        Es.append(encontrarE(100*(i+1),d))
+for d in [4,6,8]:#[1,2,3,10,30,100]:
+    for i in range(20):
+        Es.append(encontrarE(500*(i+1),d))
     with open("salida_experimento_{}------2.pickle".format(hs),"wb") as f:
         pickle.dump(Es,f)
 

@@ -154,7 +154,11 @@ def generar_Xn_Yn(funcion_original,funcion_ruido,n,d):
     return x_n, y_n
 
 def generar_predictor(x_n,y_n,kernel,d):
-    return suma_kernelizada(kernel,d,x_n,y_n)
+    n=x_n.shape[0]
+    h_n=0.8548*(n**(-1.0/(4.054*d)))
+    #h_n=10.0**(-1.0/d)
+    k_hn = ancho_kernel(kernel,h_n)
+    return suma_kernelizada(k_hn,d,x_n,y_n)
 
 def generar_predictor_a_partir_de_datos(funcion_original,funcion_ruido,n,d,kernel):
     x_n,y_n=generar_Xn_Yn(funcion_original,funcion_ruido,n,d)
@@ -180,7 +184,7 @@ def kernel_naive(x):
 """
 Encuentra la media del error L2 promediando el obtenido a partir de estimar_error_L2 para q regresiones y qq estimaciones de la regresión para cada q (obtenida cada una a partir de )
 """
-def encontrarE(n,d,q=100,qq=3,kernel_prediccion=ancho_kernel(kernel_naive,0.1)):
+def encontrarE(n,d,q=100,qq=1,kernel_prediccion=kernel_naive):
     logging.info("Voy a calcular E para n={}, d={}, q={}, qq={}".format(n,d,q,qq))
     suma_estimaciones_L2 = .0
     cantidad_estimaciones_L2 = 0
@@ -221,7 +225,7 @@ from time import gmtime, strftime
 hs=strftime("%d-%b-%Y-%H-%M-%S", gmtime())
 
 Es=[]
-for d in [4,6,8]:#[1,2,3,10,30,100]:
+for d in [1,2,3,4,6,8,10]:#[1,2,3,10,30,100]:
     for i in range(20):
         Es.append(encontrarE(500*(i+1),d))
     with open("salida_experimento_{}------2.pickle".format(hs),"wb") as f:

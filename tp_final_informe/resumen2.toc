@@ -1,0 +1,12 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Idea - introducci\IeC {\'o}n te\IeC {\'o}rica}{2}
+\contentsline {section}{\numberline {2}Primera estrategia}{3}
+\contentsline {subsection}{\numberline {2.1}Estimaci\IeC {\'o}n de $\mathds {E}|| m_n-m ||^2$}{3}
+\contentsline {subsection}{\numberline {2.2}Verificaci\IeC {\'o}n del teorema}{3}
+\contentsline {section}{\numberline {3}Primeros resultados: $h_n=0.1$}{5}
+\contentsline {section}{\numberline {4}Primeros resultados: $h_n=0.5$}{8}
+\contentsline {section}{\numberline {5}Conclusiones para $h_n$ constante}{10}
+\contentsline {section}{\numberline {6}Segunda estrategia}{11}
+\contentsline {section}{\numberline {7}Resultados para $h_n$ variando con $d$ y $n$}{12}
+\contentsline {section}{\numberline {8}Resultados para $h_n$ variando s\IeC {\'o}lo con $d$}{15}
+\contentsline {section}{\numberline {9}Conclusiones para $h_n$ variable}{17}

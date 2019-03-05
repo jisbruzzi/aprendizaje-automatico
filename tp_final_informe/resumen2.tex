@@ -46,6 +46,307 @@
 \newpage
 \tableofcontents
 \newpage
+\section{Reconstrucción de la prueba del teorema 5.2}
+\subsection{Esquema de la prueba}
+
+\begin{enumerate}
+  \item Descomponer $ \mathds{E}[ (m_n(x) - m(x))^2 | X_1, ..., X_n] $ en dos términos
+  \item Acotar el primer término aplicando esas definiciones
+  \item Acotar el segundo término utilizando la propiedad de Lipschitz
+  \item Utilizar la descomposición anterior para descomponer $\mathds{E}|| m_n -m ||^2$
+  \item Acotar el primer término de la segunda descomposición
+  \item Acotar el segundo término de la segunda descomposición
+  \item Calcular la integral $\int_{S^{*}} \frac{1}{n\mu(S_{x,h_n})} \mu(dx) $
+  \item Aplicar las cotas y el resultado de la integral en la segunda descomposición 
+\end{enumerate}
+
+\subsection{Prueba del teorema 5.2}
+\subsubsection{Descomponer $ \mathds{E}[ (m_n(x) - m(x))^2 | X_1, ..., X_n] $ en dos términos}
+
+$$
+\begin{aligned}
+\mathds{E}[ (m_n(x) - m(x))^2 | X_1, ..., X_n ] &= \\
+&= \mathds{E}[ (m_n(x) - \hat{m_n}(x))^2 | X_1, ..., X_n ] + (\hat{m_n}(x) - m(x))^2 \\ 
+&= A + B
+\end{aligned}
+$$
+
+$$
+\hat{m}_n(x) = \frac{ \sum_{i=1}^{n} m(X_i) \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})}
+$$
+
+\subsubsection{Acotar el primer término aplicando esas definiciones}
+
+Sean:
+$$
+B_n(x)=\{ n \mu_n(S_x,h_n) > 0 \}
+$$
+
+$$
+m_n(x)=\frac{ \sum_{i=1}^{n} Y_i \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})}
+$$
+
+$$
+m(x)=\mathds{E}[Y|X=x]
+$$
+$$
+\mu_n(A)=\frac{1}{n}\sum_{i=1}^n \mathds{1}\{ X_i \in A \}
+$$
+
+Entonces, aplicando la segunda definición:
+$$
+\begin{aligned}
+A &= \mathds{E}[ (m_n(x) - \hat{m_n}(x))^2 | X_1, ..., X_n ] \\
+&= \mathds{E}\Bigg[ \Bigg( \frac{ \sum_{i=1}^{n} (Y_i - m(X_i)) \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})} \Bigg)^2 | X_1, ..., X_n \Bigg] \\
+&= \mathds{E}\Bigg[ \Bigg( \frac{ \sum_{i=1}^{n} (Y_i - \mathds{E}[Y|X=X_i]) \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})} \Bigg)^2 | X_1, ..., X_n \Bigg] \\
+&= \mathds{E}\Bigg[  \frac{ \sum_{i=1}^{n} (Y_i - \mathds{E}[Y|X=X_i])^2 \mathds{1}\{ X_i \in S_{x,h_n} \} }{(n \mu_n(S_{x,h_n}))^2}  | X_1, ..., X_n \Bigg] \\
+&= \frac{ \sum_{i=1}^{n} \mathds{E}[(Y_i - \mathds{E}[Y|X=X_i])^2] \mathds{1}\{ X_i \in S_{x,h_n} \} }{(n \mu_n(S_{x,h_n}))^2} \\
+&= \frac{ \sum_{i=1}^{n} \mathop{Var}(Y_i|X_i) \mathds{1}\{ X_i \in S_{x,h_n} \} }{(n \mu_n(S_{x,h_n}))^2} \\
+&= \mathop{Var}(Y|X) \frac{ \sum_{i=1}^{n} \mathds{1}\{ X_i \in S_{x,h_n} \} }{(n \mu_n(S_{x,h_n}))^2} \\
+&= \mathop{Var}(Y|X) \frac{n \mu_n(S_{x,h_n}) }{(n \mu_n(S_{x,h_n}))^2} \\
+&= \mathop{Var}(Y|X) \frac{ 1 }{n \mu_n(S_{x,h_n})} \mathds{1} \{ B_n(x)\}\\
+&\leq \sigma^2 \frac{ 1 }{n \mu_n(S_{x,h_n})} \mathds{1} \{ B_n(x)\}\\
+\end{aligned}
+$$
+Aclaración: el $\mathds{1} \{ B_n(x)\}$ final se agrega para que la última expresión pueda valer 0 en el caso de que para ningún $i$ se cumpla $X_i \in S_{x,h_n}$, de esta forma se preserva la igualdad en ese caso.
+
+Nota: en la demostración se asume que un único $X_i$ puede pertenecer a un $S_{x,h_n}$, de esta forma se puede operar con el cuadrado tal como se hace en el desarrollo arriba (página 78 gyorfi).
+
+\subsubsection{Acotar el segundo término utilizando la propiedad de Lipschitz}
+La constante de Lipschitz $C$ es la menor $c \in \mathds{R}$ que cumple 
+$$
+| f(x_1) -f(x_2) | \leq c | x_1 - x_2 |
+$$
+Así, $ |m(X_i)-m(x)| \leq C h_n $ porque $|X_i - x| \leq h_n$.
+
+Con lo cual, operando con el cuadrado tal como en la sección anterior, tenemos (página 78):
+
+$$
+\begin{aligned}
+  B 
+  &= (\hat{m}_n(x)-m(x))^2 \\
+  &=  \Bigg( \frac{ \sum_{i=1}^{n} (m(X_i) - m(x)) \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})} \Bigg)^2 \mathds{1}\{ B_n(x) \} + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \} \\
+  &=   \frac{ \sum_{i=1}^{n} (m(X_i) - m(x))^2 \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})}  \mathds{1}\{ B_n(x) \} + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \} \\
+  &\leq   \frac{ \sum_{i=1}^{n} (C h_n)^2 \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})}  \mathds{1}\{ B_n(x) \} + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \} \\
+  &= (C h_n)^2  \frac{ \sum_{i=1}^{n}  \mathds{1}\{ X_i \in S_{x,h_n} \} }{n \mu_n(S_{x,h_n})}  \mathds{1}\{ B_n(x) \} + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \} \\
+  &= (C h_n)^2    \mathds{1}\{ B_n(x) \} + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \} \\
+  &\leq (C h_n)^2 + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \}
+\end{aligned}
+$$
+
+Nota: la primera descomposición en una suma se debe a que se prserva el valor de la igualdad cuando se cumple $B_n(x)$ y cuando no se cumple.
+
+\subsubsection{Utilizar la descomposición anterior para descomponer $\mathds{E}|| m_n -m ||^2$}
+
+$$
+\begin{aligned}
+  \mathds{E}|| m_n -m ||^2 \\
+  &= \mathds{E} \Bigg\{ \int (m_n(x)-m(x))^2 \mu(dx) 
+  \Bigg\} \\
+  &= \mathds{E} \Bigg\{ \int_{S^{*}} (A+B) \mu(dx) 
+  \Bigg\} \\
+  &= \mathds{E} \Bigg\{ \int_{S^{*}} A \mu(dx) 
+  \Bigg\} + \mathds{E} \Bigg\{ \int_{S^{*}} B \mu(dx) 
+  \Bigg\} \\
+  &= \mathds{E} \Bigg\{ \int_{S^{*}} 
+      \sigma^2 \frac{ 1 }{n \mu_n(S_{x,h_n})} \mathds{1} \{ B_n(x)\}
+   \mu(dx) \Bigg\} 
+    + \\ &+ 
+   \mathds{E} \Bigg\{ \int_{S^{*}} 
+    (C h_n)^2 + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \}
+   \mu(dx) 
+  \Bigg\} \\
+  &= A' + B'
+\end{aligned}
+$$
+
+\subsubsection{Acotar el primer término de la segunda descomposición}
+Por la definición de $\mu_n(A)$ y la de $B_n(x)$
+$$
+\begin{aligned}
+  A' &= \\
+  &=\mathds{E} \Bigg\{ \int_{S^{*}} \sigma^2 \frac{ 1 }{n \mu_n(S_{x,h_n})} \mathds{1} \{ B_n(x)\} \mu(dx) \Bigg\} \\
+  &=\sigma^2 \mathds{E} \Bigg\{ \int_{S^{*}}  \frac{ \mathds{1} \{ B_n(x)\} }{n (\frac{1}{n} \sum_{i=1}^n \mathds{1}\{ X_i \in S_{x,h_n} \})}  \mu(dx) \Bigg\} \\
+  &=\sigma^2 \mathds{E} \Bigg\{ \int_{S^{*}}  \frac{ \mathds{1} \{ 
+    \sum_{i=1}^n \mathds{1}\{ X_i \in S_{x,h_n} \}>0  
+  \} }{ \sum_{i=1}^n \mathds{1}\{ X_i \in S_{x,h_n} \}}  \mu(dx) \Bigg\}
+\end{aligned}
+$$
+
+$\sum_{i=1}^n \mathds{1}\{ X_i \in S_{x,h_n} \}$ es una variable aleatoria con una distribución binomial de parámetros $n=n$ y $p=\mathds{P}( X \in S_{x,h_n} )=\mu(S_{x,h_n})$ por la definición de $\mu(A)$.
+
+El lema 4.1 del libro indica que, siendo $B(n,p)$ una variable aleatoria de distribución binomial con parámetros $n$ y $p$, vale que 
+$$
+\mathds{E}[\frac{1}{B(n,p)} \mathds{1} \{ B(n,p)>0 \}] \leq \frac{2}{(n+1)p} \leq \frac{2}{np}
+$$
+
+Aplicando este lema:
+
+$$
+\begin{aligned}
+  A' &= \\
+  &= \sigma^2 \int_{S^{*}} \mathds{E} \Bigg\{   \frac{ \mathds{1} \{ 
+    \sum_{i=1}^n \mathds{1}\{ X_i \in S_{x,h_n} \}>0  
+  \} }{ \sum_{i=1}^n \mathds{1}\{ X_i \in S_{x,h_n} \}} \Bigg\} \mu(dx) \\
+  &\leq \sigma^2 \int_{S^{*}} \frac{2}{n\mu(S_{x,h_n})}\mu(dx) \\
+  &= 2 \sigma^2 \int_{S^{*}} \frac{1}{n\mu(S_{x,h_n})}\mu(dx) \\
+\end{aligned}
+$$
+
+\subsubsection{Acotar el segundo término de la segunda descomposición}
+
+$$
+\begin{aligned}
+  B' &= \\
+  &= \mathds{E} \Bigg\{ \int_{S^{*}} \Big(
+    (C h_n)^2 + m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \}
+    \Big) \mu(dx) 
+  \Bigg\} \\
+  &= \mathds{E} \Bigg\{ \int_{S^{*}} \Big(
+     m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \}
+    \Big) \mu(dx) 
+    +
+    \int_{S^{*}} (C h_n)^2 \mu(dx) 
+  \Bigg\} \\
+  &= \mathds{E} \Bigg\{ \int_{S^{*}} \Big(
+     m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \}
+    \Big) \mu(dx) 
+    +
+    (C h_n)^2 \int_{S^{*}} \mu(dx) 
+  \Bigg\} \\
+  &= \mathds{E} \Bigg\{ \int_{S^{*}} \Big(
+     m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \}
+    \Big) \mu(dx) 
+    \Bigg\}
+    +
+    \mathds{E} \Bigg\{
+      (C h_n)^2 \int_{S^{*}} \mu(dx) 
+    \Bigg\} \\
+  &= \int_{S^{*}} \mathds{E} \bigg\{ 
+     m(x)^2 \mathds{1}\{ \text{ no } B_n(x) \}
+    \bigg\}
+    \mu(dx) 
+    +
+    \mathds{E} \Bigg\{
+      (C h_n)^2 \cdot 1
+    \Bigg\} \\
+    &= \int_{S^{*}} m(x)^2 \mathds{E} \bigg\{ 
+      \mathds{1}\{ \text{ no } B_n(x) \}
+    \bigg\}
+    \mu(dx) 
+    + (C h_n)^2
+\end{aligned}
+$$
+
+A continuación se analiza $\mathds{E} \bigg\{ 
+  \mathds{1}\{ \text{ no } B_n(x) \}
+\bigg\}$ :
+$$
+\begin{aligned}
+\mathds{E} \bigg\{ 
+      \mathds{1}\{ \text{ no } B_n(x) \}
+    \bigg\}&= \\
+&= \mathds{E} \bigg\{ 
+  \mathds{1}\{
+    \mu_n(S_{x,h_n})=0
+  \}\\
+&= \mathds{P} \bigg\{ 
+  \mu_n(S_{x,h_n})=0
+\bigg\} \cdot 1 
++ 
+\mathds{P} \bigg\{ 
+    \mu_n(S_{x,h_n})>0
+\bigg\} \cdot 0 \\
+&= \mathds{P} \bigg\{ 
+  \sum_{i=1}^n \mathds{1} \{ X_i \in S_{x,h_n} \} =0
+\bigg\} \\
+&= \mathds{P} \bigg\{ 
+  Binomial(n,\mu(S_{x,h_n}))=0
+\bigg\} \\
+&= (1-\mu(S_{x,h_n}))^n
+\end{aligned}
+$$
+
+Con lo cual
+$$
+\begin{aligned}
+B' &= \\
+&= \int_{S^{*}} m(x)^2 \mathds{E} \bigg\{ 
+  \mathds{1}\{ \text{ no } B_n(x) \}
+\bigg\}
+\mu(dx) 
++ (C h_n)^2 \\
+&= \int_{S^{*}} m(x)^2 (1-\mu(S_{x,h_n}))^n \mu(dx) 
++ (C h_n)^2
+\end{aligned}
+$$
+
+A continuación se acota la integral:
+$$
+\begin{aligned}
+B' &= \\
+&\leq(C h_n)^2 + \mathop{sup}_{z \in S^{*}} m(z)^2 \int_{S^{*}} e^{-n\mu(S_{x,h_n})} \mu(dx) \\
+&\leq(C h_n)^2 + \mathop{sup}_{z \in S^{*}} m(z)^2 \mathop{max}_u ue^{-u} \int_{S^{*}} \frac{1}{n\mu(S_{x,h_n})} \mu(dx) \\
+\end{aligned}
+$$
+
+\subsubsection{Calcular la integral $\int_{S^{*}} \frac{1}{n\mu(S_{x,h_n})} \mu(dx) $}
+En el libro se indica que tal integral se calcula de la siguiente forma, admitiendo $S\subset S^{*}$ (página 76):
+
+Se eligen $z_1, ..., z_{M_n}$ tales que la unión de $S_{z_1, h_n/2}, ..., S_{z_{M_n}, h_n/2}$ cubre $S$, y $$ M_n \leq \frac{\tilde{c}}{h_n^d} $$
+Siendo $\tilde{c}$ una constante.
+
+Inicialmente se acota la integral sobre $S$ con la suma de las integrales sobre los $S_{z_i,h_n/2}$
+$$
+\begin{aligned}
+\int_{S} \frac{1}{n\mu(S_{x,h_n})} \mu(dx)  &\leq \\
+&\leq \sum_{j=1}^{M_n} \int_{S} \frac{\mathds{1}\{ x\in S_{z_j,h_n/2} \}}{n\mu(S_{x,h_n})} \mu(dx) \\
+&= \sum_{j=1}^{M_n} \int_{S_{z_j,h_n/2}} \frac{1}{n\mu(S_{x,h_n})} \mu(dx) \\
+&\leq \sum_{j=1}^{M_n} \int_{S_{z_j,h_n/2}} \frac{1}{n\mu(S_{z_j,h_n/2})} \mu(dx) \\
+&= \sum_{j=1}^{M_n} \frac{1}{n\mu(S_{z_j,h_n/2})} \int_{S_{z_j,h_n/2}}  \mu(dx) \\
+\text{Por la definición de $\mu$:} \\
+&= \sum_{j=1}^{M_n} \frac{1}{n\mu(S_{z_j,h_n/2})}  \mu(S_{z_j,h_n/2}) \\
+&= \sum_{j=1}^{M_n} \frac{1}{n} \\
+&= \frac{M_n}{n} \\
+&\leq \frac{\tilde{c}}{nh_n^d} \\
+\end{aligned}
+$$
+\subsubsection{Aplicar las cotas y el resultado de la integral en la segunda descomposición}
+$$
+\begin{aligned}
+A' + B' &\leq \\
+&\leq 2 \sigma^2 \int_{S^{*}} \frac{1}{n\mu(S_{x,h_n})}\mu(dx) +\\&+
+(C h_n)^2 
++\\&+
+\mathop{sup}_{z \in S^{*}} m(z)^2 \mathop{max}_u ue^{-u} \int_{S^{*}} \frac{1}{n\mu(S_{x,h_n})} \mu(dx) \\
+&\leq 2 \sigma^2\frac{\tilde{c}}{nh_n^d} +
+(C h_n)^2 
++
+\mathop{sup}_{z \in S^{*}} m(z)^2 \mathop{max}_u ue^{-u} \frac{\tilde{c}}{nh_n^d} \\
+\end{aligned}
+$$
+Debido a que $ue^{-u}$ es máximo cuando $u=1$:
+$$
+\begin{aligned}
+A' + B' &\leq \\
+&\leq 2 \sigma^2 \frac{\tilde{c}}{nh_n^d} +
+(C h_n)^2 
++
+\mathop{sup}_{z \in S^{*}} m(z)^2 \frac{\tilde{c}}{nh_n^d} \\
+&= \frac{\tilde{c}}{nh_n^d} (2 \sigma^2 +
+\mathop{sup}_{z \in S^{*}} m(z)^2)  + (C h_n)^2 \\
+&= \tilde{c} \frac{2 \sigma^2 +
+\mathop{sup}_{z \in S^{*}} m(z)^2}{nh_n^d}  + (C h_n)^2 \\
+&\leq \hat{c} \frac{\sigma^2 +
+\mathop{sup}_{z \in S^{*}} m(z)^2}{nh_n^d}  + (C h_n)^2 \\
+\end{aligned}
+$$
+
+Donde $\hat{c}=2\tilde{c}$ 
+
+\subsubsection{Análisis de la segunda proposición del teorema}
+Al reemplazar el $h_n$ propuesto en la expresión final alcanzada, se obtiene la segunda proposición del teorema, en la que $c''=c'+\hat{c}(c')^{-d}=c'+2\tilde{c}(c')^{-d}$.
+
 \section{Idea - introducción teórica}
 El objetivo es comprobar empíricamente el teorema 5.2 del Gyorfy:
 

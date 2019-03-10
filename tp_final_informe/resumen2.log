@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.26)  5 MAR 2019 11:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.26)  10 MAR 2019 20:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -23,21 +23,6 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2015/03/17 v1.2c Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
- (/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
-File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
-)) (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty
-Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
- (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def
-File: uni-global.def 2013/05/13 UCS: Unicode global data
-)
-\uc@secondtry=\count87
-\uc@combtoks=\toks16
-\uc@combtoksb=\toks17
-\uc@temptokena=\toks18
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2018/02/14 3.18 The Babel package
  (/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
@@ -46,18 +31,33 @@ File: switch.def 2018/02/14 3.18 Babel switching mechanism
 Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
  (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2018/02/14 3.18 Babel common definitions
-\babel@savecnt=\count88
+\babel@savecnt=\count87
 \U@D=\dimen103
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@dirlevel=\count89
+\bbl@dirlevel=\count88
 )
-\es@quottoks=\toks19
-\es@quotdepth=\count90
+\es@quottoks=\toks14
+\es@quotdepth=\count89
 Package babel Info: Making " an active character on input line 561.
 Package babel Info: Making . an active character on input line 662.
 Package babel Info: Making < an active character on input line 707.
 Package babel Info: Making > an active character on input line 707.
-)) (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+ (/usr/share/texlive/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+)) (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
+ (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2013/05/13 UCS: Unicode global data
+)
+\uc@secondtry=\count90
+\uc@combtoks=\toks17
+\uc@combtoksb=\toks18
+\uc@temptokena=\toks19
+) (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
  (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -241,23 +241,23 @@ LaTeX Info: Redefining \% on input line 6.
 )
 \openout1 = `resumen2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Info: Redefining \. on input line 31.
+LaTeX Info: Redefining \% on input line 31.
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Info: Redefining \. on input line 27.
-LaTeX Info: Redefining \% on input line 27.
 \AtBeginShipoutBox=\box33
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -320,7 +320,7 @@ Package caption Info: End \AtBeginDocument code.
 <FIUBA_logo.jpg, id=1, 391.4625pt x 770.88pt>
 File: FIUBA_logo.jpg Graphic file (type jpg)
 <use FIUBA_logo.jpg>
-Package pdftex.def Info: FIUBA_logo.jpg  used on input line 30.
+Package pdftex.def Info: FIUBA_logo.jpg  used on input line 34.
 (pdftex.def)             Requested size: 58.49762pt x 115.19179pt.
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
@@ -329,365 +329,632 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/jose/aprendizaje-automatico/tp_final_informe/FIUBA_logo.jpg>] (/home/jose/aprendizaje-automatico/tp_final_informe/resumen2.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 3.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 4.
  (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 5.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 8.
  (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-))
+) [1])
 \tf@toc=\write3
 \openout3 = `resumen2.toc'.
 
- [1]
-Overfull \hbox (42.6111pt too wide) detected at line 72
+<graficos_kernel.png, id=27, 917.4275pt x 236.885pt>
+File: graficos_kernel.png Graphic file (type png)
+<use graficos_kernel.png>
+Package pdftex.def Info: graficos_kernel.png  used on input line 63.
+(pdftex.def)             Requested size: 390.0pt x 100.70189pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 63--64
+[][] 
+ []
+
+[2] [3 </home/jose/aprendizaje-automatico/tp_final_informe/graficos_kernel.png>] [4] [5]
+<figuras_h=0.1/cotas-error-d=1.png, id=48, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=1.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=1.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=1.png  used on input line 157.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 157--158
+[][] 
+ []
+
+File: figuras_h=0.1/cotas-error-d=1.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=1.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=1.png  used on input line 161.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=1.png, id=50, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=1.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=1.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=1.png  used on input line 161.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=2.png, id=51, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=2.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=2.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=2.png  used on input line 162.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=2.png, id=52, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=2.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=2.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=2.png  used on input line 162.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=3.png, id=53, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=3.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=3.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=3.png  used on input line 163.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=3.png, id=54, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=3.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=3.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=3.png  used on input line 163.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=4.png, id=55, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=4.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=4.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=4.png  used on input line 164.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=4.png, id=56, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=4.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=4.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=4.png  used on input line 164.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=6.png, id=57, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=6.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=6.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=6.png  used on input line 165.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=6.png, id=58, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=6.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=6.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=6.png  used on input line 165.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=8.png, id=59, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=8.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=8.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=8.png  used on input line 166.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=8.png, id=60, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=8.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=8.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=8.png  used on input line 166.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=10.png, id=61, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=10.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=10.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=10.png  used on input line 167.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=10.png, id=62, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=10.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=10.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=10.png  used on input line 167.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=30.png, id=63, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=30.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=30.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=30.png  used on input line 168.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=30.png, id=64, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=30.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=30.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=30.png  used on input line 168.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/cotas-error-d=100.png, id=65, 462.528pt x 346.896pt>
+File: figuras_h=0.1/cotas-error-d=100.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=100.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=100.png  used on input line 169.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.1/busqueda-de-k-d=100.png, id=66, 462.528pt x 346.896pt>
+File: figuras_h=0.1/busqueda-de-k-d=100.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=100.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=100.png  used on input line 169.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+
+Overfull \hbox (20.2353pt too wide) in paragraph at lines 161--170
+[][] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 161--170
+[] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--170
+
+ []
+
+[6 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=1.png>] [7 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=3.png>] [8 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=10.png>]
+<figuras_h=0.1/k-variando-d.png, id=92, 462.528pt x 346.896pt>
+File: figuras_h=0.1/k-variando-d.png Graphic file (type png)
+<use figuras_h=0.1/k-variando-d.png>
+Package pdftex.def Info: figuras_h=0.1/k-variando-d.png  used on input line 171.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 171--172
+[][] 
+ []
+
+[9 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=30.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=30.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=100.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/busqueda-de-k-d=100.png>]
+<figuras_h=0.1/resultados-grales.png, id=100, 462.528pt x 346.896pt>
+File: figuras_h=0.1/resultados-grales.png Graphic file (type png)
+<use figuras_h=0.1/resultados-grales.png>
+Package pdftex.def Info: figuras_h=0.1/resultados-grales.png  used on input line 173.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 173--174
+[][] 
+ []
+
+File: figuras_h=0.1/cotas-error-d=1.png Graphic file (type png)
+<use figuras_h=0.1/cotas-error-d=1.png>
+Package pdftex.def Info: figuras_h=0.1/cotas-error-d=1.png  used on input line 178.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+File: figuras_h=0.1/busqueda-de-k-d=1.png Graphic file (type png)
+<use figuras_h=0.1/busqueda-de-k-d=1.png>
+Package pdftex.def Info: figuras_h=0.1/busqueda-de-k-d=1.png  used on input line 178.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/cotas-error-d=2.png, id=101, 462.528pt x 346.896pt>
+File: figuras_h=0.5/cotas-error-d=2.png Graphic file (type png)
+<use figuras_h=0.5/cotas-error-d=2.png>
+Package pdftex.def Info: figuras_h=0.5/cotas-error-d=2.png  used on input line 179.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/busqueda-de-k-d=2.png, id=102, 462.528pt x 346.896pt>
+File: figuras_h=0.5/busqueda-de-k-d=2.png Graphic file (type png)
+<use figuras_h=0.5/busqueda-de-k-d=2.png>
+Package pdftex.def Info: figuras_h=0.5/busqueda-de-k-d=2.png  used on input line 179.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/cotas-error-d=3.png, id=103, 462.528pt x 346.896pt>
+File: figuras_h=0.5/cotas-error-d=3.png Graphic file (type png)
+<use figuras_h=0.5/cotas-error-d=3.png>
+Package pdftex.def Info: figuras_h=0.5/cotas-error-d=3.png  used on input line 180.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/busqueda-de-k-d=3.png, id=104, 462.528pt x 346.896pt>
+File: figuras_h=0.5/busqueda-de-k-d=3.png Graphic file (type png)
+<use figuras_h=0.5/busqueda-de-k-d=3.png>
+Package pdftex.def Info: figuras_h=0.5/busqueda-de-k-d=3.png  used on input line 180.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/cotas-error-d=4.png, id=105, 462.528pt x 346.896pt>
+File: figuras_h=0.5/cotas-error-d=4.png Graphic file (type png)
+<use figuras_h=0.5/cotas-error-d=4.png>
+Package pdftex.def Info: figuras_h=0.5/cotas-error-d=4.png  used on input line 181.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/busqueda-de-k-d=4.png, id=106, 462.528pt x 346.896pt>
+File: figuras_h=0.5/busqueda-de-k-d=4.png Graphic file (type png)
+<use figuras_h=0.5/busqueda-de-k-d=4.png>
+Package pdftex.def Info: figuras_h=0.5/busqueda-de-k-d=4.png  used on input line 181.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/cotas-error-d=6.png, id=107, 462.528pt x 346.896pt>
+File: figuras_h=0.5/cotas-error-d=6.png Graphic file (type png)
+<use figuras_h=0.5/cotas-error-d=6.png>
+Package pdftex.def Info: figuras_h=0.5/cotas-error-d=6.png  used on input line 182.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/busqueda-de-k-d=6.png, id=108, 462.528pt x 346.896pt>
+File: figuras_h=0.5/busqueda-de-k-d=6.png Graphic file (type png)
+<use figuras_h=0.5/busqueda-de-k-d=6.png>
+Package pdftex.def Info: figuras_h=0.5/busqueda-de-k-d=6.png  used on input line 182.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/cotas-error-d=8.png, id=109, 462.528pt x 346.896pt>
+File: figuras_h=0.5/cotas-error-d=8.png Graphic file (type png)
+<use figuras_h=0.5/cotas-error-d=8.png>
+Package pdftex.def Info: figuras_h=0.5/cotas-error-d=8.png  used on input line 183.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/busqueda-de-k-d=8.png, id=110, 462.528pt x 346.896pt>
+File: figuras_h=0.5/busqueda-de-k-d=8.png Graphic file (type png)
+<use figuras_h=0.5/busqueda-de-k-d=8.png>
+Package pdftex.def Info: figuras_h=0.5/busqueda-de-k-d=8.png  used on input line 183.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/cotas-error-d=10.png, id=111, 462.528pt x 346.896pt>
+File: figuras_h=0.5/cotas-error-d=10.png Graphic file (type png)
+<use figuras_h=0.5/cotas-error-d=10.png>
+Package pdftex.def Info: figuras_h=0.5/cotas-error-d=10.png  used on input line 184.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h=0.5/busqueda-de-k-d=10.png, id=112, 462.528pt x 346.896pt>
+File: figuras_h=0.5/busqueda-de-k-d=10.png Graphic file (type png)
+<use figuras_h=0.5/busqueda-de-k-d=10.png>
+Package pdftex.def Info: figuras_h=0.5/busqueda-de-k-d=10.png  used on input line 184.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+
+Overfull \hbox (20.2353pt too wide) in paragraph at lines 178--185
+[][] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 178--185
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 178--185
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 178--185
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 178--185
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 178--185
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 178--185
+[] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--185
+
+ []
+
+[10 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/k-variando-d.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/resultados-grales.png>] [11 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/busqueda-de-k-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/busqueda-de-k-d=3.png>] [12 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/busqueda-de-k-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/busqueda-de-k-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/busqueda-de-k-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/busqueda-de-k-d=10.png>]
+<figuras_h=0.5/k-variando-d.png, id=137, 462.528pt x 346.896pt>
+File: figuras_h=0.5/k-variando-d.png Graphic file (type png)
+<use figuras_h=0.5/k-variando-d.png>
+Package pdftex.def Info: figuras_h=0.5/k-variando-d.png  used on input line 186.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 186--187
+[][] 
+ []
+
+<figuras_h=0.5/resultados-grales.png, id=138, 462.528pt x 346.896pt>
+File: figuras_h=0.5/resultados-grales.png Graphic file (type png)
+<use figuras_h=0.5/resultados-grales.png>
+Package pdftex.def Info: figuras_h=0.5/resultados-grales.png  used on input line 188.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 188--189
+[][] 
+ []
+
+[13 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/k-variando-d.png>] [14 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/resultados-grales.png>] [15]
+<figuras_h_dinamico/cotas-error-d=1.png, id=151, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/cotas-error-d=1.png Graphic file (type png)
+<use figuras_h_dinamico/cotas-error-d=1.png>
+Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=1.png  used on input line 242.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/busqueda-de-k-d=1.png, id=152, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/busqueda-de-k-d=1.png Graphic file (type png)
+<use figuras_h_dinamico/busqueda-de-k-d=1.png>
+Package pdftex.def Info: figuras_h_dinamico/busqueda-de-k-d=1.png  used on input line 242.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/cotas-error-d=2.png, id=153, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/cotas-error-d=2.png Graphic file (type png)
+<use figuras_h_dinamico/cotas-error-d=2.png>
+Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=2.png  used on input line 243.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/busqueda-de-k-d=2.png, id=154, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/busqueda-de-k-d=2.png Graphic file (type png)
+<use figuras_h_dinamico/busqueda-de-k-d=2.png>
+Package pdftex.def Info: figuras_h_dinamico/busqueda-de-k-d=2.png  used on input line 243.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/cotas-error-d=3.png, id=155, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/cotas-error-d=3.png Graphic file (type png)
+<use figuras_h_dinamico/cotas-error-d=3.png>
+Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=3.png  used on input line 244.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/busqueda-de-k-d=3.png, id=156, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/busqueda-de-k-d=3.png Graphic file (type png)
+<use figuras_h_dinamico/busqueda-de-k-d=3.png>
+Package pdftex.def Info: figuras_h_dinamico/busqueda-de-k-d=3.png  used on input line 244.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/cotas-error-d=4.png, id=157, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/cotas-error-d=4.png Graphic file (type png)
+<use figuras_h_dinamico/cotas-error-d=4.png>
+Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=4.png  used on input line 245.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/busqueda-de-k-d=4.png, id=158, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/busqueda-de-k-d=4.png Graphic file (type png)
+<use figuras_h_dinamico/busqueda-de-k-d=4.png>
+Package pdftex.def Info: figuras_h_dinamico/busqueda-de-k-d=4.png  used on input line 245.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/cotas-error-d=6.png, id=159, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/cotas-error-d=6.png Graphic file (type png)
+<use figuras_h_dinamico/cotas-error-d=6.png>
+Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=6.png  used on input line 246.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/busqueda-de-k-d=6.png, id=160, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/busqueda-de-k-d=6.png Graphic file (type png)
+<use figuras_h_dinamico/busqueda-de-k-d=6.png>
+Package pdftex.def Info: figuras_h_dinamico/busqueda-de-k-d=6.png  used on input line 246.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/cotas-error-d=8.png, id=161, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/cotas-error-d=8.png Graphic file (type png)
+<use figuras_h_dinamico/cotas-error-d=8.png>
+Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=8.png  used on input line 247.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/busqueda-de-k-d=8.png, id=162, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/busqueda-de-k-d=8.png Graphic file (type png)
+<use figuras_h_dinamico/busqueda-de-k-d=8.png>
+Package pdftex.def Info: figuras_h_dinamico/busqueda-de-k-d=8.png  used on input line 247.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/cotas-error-d=10.png, id=163, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/cotas-error-d=10.png Graphic file (type png)
+<use figuras_h_dinamico/cotas-error-d=10.png>
+Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=10.png  used on input line 248.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_dinamico/busqueda-de-k-d=10.png, id=164, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/busqueda-de-k-d=10.png Graphic file (type png)
+<use figuras_h_dinamico/busqueda-de-k-d=10.png>
+Package pdftex.def Info: figuras_h_dinamico/busqueda-de-k-d=10.png  used on input line 248.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+
+Overfull \hbox (20.2353pt too wide) in paragraph at lines 242--249
+[][] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 242--249
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 242--249
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 242--249
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 242--249
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 242--249
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 242--249
+[] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--249
+
+ []
+
+[16] [17 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/busqueda-de-k-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/busqueda-de-k-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/busqueda-de-k-d=3.png>] [18 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/busqueda-de-k-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/busqueda-de-k-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/busqueda-de-k-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/busqueda-de-k-d=10.png>]
+<figuras_h_dinamico/k-variando-d.png, id=191, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/k-variando-d.png Graphic file (type png)
+<use figuras_h_dinamico/k-variando-d.png>
+Package pdftex.def Info: figuras_h_dinamico/k-variando-d.png  used on input line 250.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 250--251
+[][] 
+ []
+
+<figuras_h_dinamico/resultados-grales.png, id=192, 462.528pt x 346.896pt>
+File: figuras_h_dinamico/resultados-grales.png Graphic file (type png)
+<use figuras_h_dinamico/resultados-grales.png>
+Package pdftex.def Info: figuras_h_dinamico/resultados-grales.png  used on input line 252.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 252--253
+[][] 
+ []
+
+[19 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/k-variando-d.png>]
+<figuras_h_semidinamico/cotas-error-d=1.png, id=197, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/cotas-error-d=1.png Graphic file (type png)
+<use figuras_h_semidinamico/cotas-error-d=1.png>
+Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=1.png  used on input line 257.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/busqueda-de-k-d=1.png, id=198, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/busqueda-de-k-d=1.png Graphic file (type png)
+<use figuras_h_semidinamico/busqueda-de-k-d=1.png>
+Package pdftex.def Info: figuras_h_semidinamico/busqueda-de-k-d=1.png  used on input line 257.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/cotas-error-d=2.png, id=199, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/cotas-error-d=2.png Graphic file (type png)
+<use figuras_h_semidinamico/cotas-error-d=2.png>
+Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=2.png  used on input line 258.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/busqueda-de-k-d=2.png, id=200, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/busqueda-de-k-d=2.png Graphic file (type png)
+<use figuras_h_semidinamico/busqueda-de-k-d=2.png>
+Package pdftex.def Info: figuras_h_semidinamico/busqueda-de-k-d=2.png  used on input line 258.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/cotas-error-d=3.png, id=201, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/cotas-error-d=3.png Graphic file (type png)
+<use figuras_h_semidinamico/cotas-error-d=3.png>
+Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=3.png  used on input line 259.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/busqueda-de-k-d=3.png, id=202, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/busqueda-de-k-d=3.png Graphic file (type png)
+<use figuras_h_semidinamico/busqueda-de-k-d=3.png>
+Package pdftex.def Info: figuras_h_semidinamico/busqueda-de-k-d=3.png  used on input line 259.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/cotas-error-d=4.png, id=203, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/cotas-error-d=4.png Graphic file (type png)
+<use figuras_h_semidinamico/cotas-error-d=4.png>
+Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=4.png  used on input line 260.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/busqueda-de-k-d=4.png, id=204, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/busqueda-de-k-d=4.png Graphic file (type png)
+<use figuras_h_semidinamico/busqueda-de-k-d=4.png>
+Package pdftex.def Info: figuras_h_semidinamico/busqueda-de-k-d=4.png  used on input line 260.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/cotas-error-d=6.png, id=205, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/cotas-error-d=6.png Graphic file (type png)
+<use figuras_h_semidinamico/cotas-error-d=6.png>
+Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=6.png  used on input line 261.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/busqueda-de-k-d=6.png, id=206, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/busqueda-de-k-d=6.png Graphic file (type png)
+<use figuras_h_semidinamico/busqueda-de-k-d=6.png>
+Package pdftex.def Info: figuras_h_semidinamico/busqueda-de-k-d=6.png  used on input line 261.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/cotas-error-d=8.png, id=207, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/cotas-error-d=8.png Graphic file (type png)
+<use figuras_h_semidinamico/cotas-error-d=8.png>
+Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=8.png  used on input line 262.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/busqueda-de-k-d=8.png, id=208, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/busqueda-de-k-d=8.png Graphic file (type png)
+<use figuras_h_semidinamico/busqueda-de-k-d=8.png>
+Package pdftex.def Info: figuras_h_semidinamico/busqueda-de-k-d=8.png  used on input line 262.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/cotas-error-d=10.png, id=209, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/cotas-error-d=10.png Graphic file (type png)
+<use figuras_h_semidinamico/cotas-error-d=10.png>
+Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=10.png  used on input line 263.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+<figuras_h_semidinamico/busqueda-de-k-d=10.png, id=210, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/busqueda-de-k-d=10.png Graphic file (type png)
+<use figuras_h_semidinamico/busqueda-de-k-d=10.png>
+Package pdftex.def Info: figuras_h_semidinamico/busqueda-de-k-d=10.png  used on input line 263.
+(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
+
+Overfull \hbox (20.2353pt too wide) in paragraph at lines 257--264
+[][] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 257--264
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 257--264
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 257--264
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 257--264
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 257--264
+[] []
+ []
+
+
+Overfull \hbox (2.61049pt too wide) in paragraph at lines 257--264
+[] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--264
+
+ []
+
+[20 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/resultados-grales.png>] [21 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/busqueda-de-k-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/busqueda-de-k-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/busqueda-de-k-d=3.png>] [22 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/busqueda-de-k-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/busqueda-de-k-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/busqueda-de-k-d=8.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/busqueda-de-k-d=10.png>]
+<figuras_h_semidinamico/k-variando-d.png, id=235, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/k-variando-d.png Graphic file (type png)
+<use figuras_h_semidinamico/k-variando-d.png>
+Package pdftex.def Info: figuras_h_semidinamico/k-variando-d.png  used on input line 265.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 265--266
+[][] 
+ []
+
+<figuras_h_semidinamico/resultados-grales.png, id=236, 462.528pt x 346.896pt>
+File: figuras_h_semidinamico/resultados-grales.png Graphic file (type png)
+<use figuras_h_semidinamico/resultados-grales.png>
+Package pdftex.def Info: figuras_h_semidinamico/resultados-grales.png  used on input line 267.
+(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
+
+Overfull \hbox (17.62482pt too wide) in paragraph at lines 267--268
+[][] 
+ []
+
+[23 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/k-variando-d.png>] [24 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/resultados-grales.png>] [25]
+Overfull \hbox (42.6111pt too wide) detected at line 308
 [][]
  []
 
-[2] [3]
-Overfull \hbox (7.45837pt too wide) detected at line 135
+[26] [27]
+Overfull \hbox (7.45837pt too wide) detected at line 371
 [][]
  []
 
 
-Overfull \hbox (8.9905pt too wide) in paragraph at lines 139--139
+Overfull \hbox (15.73885pt too wide) in paragraph at lines 375--375
 []\T1/cmr/bx/n/12 Utilizar la des-com-po-si-ción an-te-rior pa-ra des-com-po-ner $\U/dsrom/m/n/12 E\OMS/cmsy/m/n/12 jj\OML/cmm/m/it/12 m[] \OMS/cmsy/m/n/12 ^^@
  []
 
-[4] [5] [6] [7] [8] [9] [10]
-<figuras_h=0.1/cotas-error-d=1.png, id=60, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=1.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=1.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=1.png  used on input line 428.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 428--429
-[][] 
- []
-
-[11]
-File: figuras_h=0.1/cotas-error-d=1.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=1.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=1.png  used on input line 432.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.1/cotas-error-d=2.png, id=65, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=2.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=2.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=2.png  used on input line 433.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.1/cotas-error-d=3.png, id=66, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=3.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=3.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=3.png  used on input line 434.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.1/cotas-error-d=4.png, id=67, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=4.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=4.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=4.png  used on input line 435.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.1/cotas-error-d=6.png, id=68, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=6.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=6.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=6.png  used on input line 436.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.1/cotas-error-d=8.png, id=69, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=8.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=8.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=8.png  used on input line 437.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.1/cotas-error-d=10.png, id=70, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=10.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=10.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=10.png  used on input line 438.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.1/cotas-error-d=30.png, id=71, 462.528pt x 346.896pt>
-File: figuras_h=0.1/cotas-error-d=30.png Graphic file (type png)
-<use figuras_h=0.1/cotas-error-d=30.png>
-Package pdftex.def Info: figuras_h=0.1/cotas-error-d=30.png  used on input line 439.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-
-Overfull \hbox (20.2353pt too wide) in paragraph at lines 432--440
-[][] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 432--440
-[] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 432--440
-[] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 432--440
-[] [] 
- []
-
-[12 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=1.png>] [13 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=8.png>]
-<figuras_h=0.1/k-variando-d.png, id=86, 462.528pt x 346.896pt>
-File: figuras_h=0.1/k-variando-d.png Graphic file (type png)
-<use figuras_h=0.1/k-variando-d.png>
-Package pdftex.def Info: figuras_h=0.1/k-variando-d.png  used on input line 441.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 441--442
-[][] 
- []
-
-<figuras_h=0.1/resultados-grales.png, id=87, 462.528pt x 346.896pt>
-File: figuras_h=0.1/resultados-grales.png Graphic file (type png)
-<use figuras_h=0.1/resultados-grales.png>
-Package pdftex.def Info: figuras_h=0.1/resultados-grales.png  used on input line 443.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 443--444
-[][] 
- []
-
-[14 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/cotas-error-d=30.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/k-variando-d.png>]
-<figuras_h=0.5/cotas-error-d=1.png, id=94, 462.528pt x 346.896pt>
-File: figuras_h=0.5/cotas-error-d=1.png Graphic file (type png)
-<use figuras_h=0.5/cotas-error-d=1.png>
-Package pdftex.def Info: figuras_h=0.5/cotas-error-d=1.png  used on input line 448.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.5/cotas-error-d=2.png, id=95, 462.528pt x 346.896pt>
-File: figuras_h=0.5/cotas-error-d=2.png Graphic file (type png)
-<use figuras_h=0.5/cotas-error-d=2.png>
-Package pdftex.def Info: figuras_h=0.5/cotas-error-d=2.png  used on input line 449.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.5/cotas-error-d=3.png, id=96, 462.528pt x 346.896pt>
-File: figuras_h=0.5/cotas-error-d=3.png Graphic file (type png)
-<use figuras_h=0.5/cotas-error-d=3.png>
-Package pdftex.def Info: figuras_h=0.5/cotas-error-d=3.png  used on input line 450.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.5/cotas-error-d=4.png, id=97, 462.528pt x 346.896pt>
-File: figuras_h=0.5/cotas-error-d=4.png Graphic file (type png)
-<use figuras_h=0.5/cotas-error-d=4.png>
-Package pdftex.def Info: figuras_h=0.5/cotas-error-d=4.png  used on input line 451.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.5/cotas-error-d=6.png, id=98, 462.528pt x 346.896pt>
-File: figuras_h=0.5/cotas-error-d=6.png Graphic file (type png)
-<use figuras_h=0.5/cotas-error-d=6.png>
-Package pdftex.def Info: figuras_h=0.5/cotas-error-d=6.png  used on input line 452.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.5/cotas-error-d=8.png, id=99, 462.528pt x 346.896pt>
-File: figuras_h=0.5/cotas-error-d=8.png Graphic file (type png)
-<use figuras_h=0.5/cotas-error-d=8.png>
-Package pdftex.def Info: figuras_h=0.5/cotas-error-d=8.png  used on input line 453.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h=0.5/cotas-error-d=10.png, id=100, 462.528pt x 346.896pt>
-File: figuras_h=0.5/cotas-error-d=10.png Graphic file (type png)
-<use figuras_h=0.5/cotas-error-d=10.png>
-Package pdftex.def Info: figuras_h=0.5/cotas-error-d=10.png  used on input line 454.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-
-Overfull \hbox (20.2353pt too wide) in paragraph at lines 448--455
-[][] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 448--455
-[] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 448--455
-[] []
- []
-
-[15 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.1/resultados-grales.png>] [16 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=8.png>]
-<figuras_h=0.5/k-variando-d.png, id=114, 462.528pt x 346.896pt>
-File: figuras_h=0.5/k-variando-d.png Graphic file (type png)
-<use figuras_h=0.5/k-variando-d.png>
-Package pdftex.def Info: figuras_h=0.5/k-variando-d.png  used on input line 456.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 456--457
-[][] 
- []
-
-<figuras_h=0.5/resultados-grales.png, id=115, 462.528pt x 346.896pt>
-File: figuras_h=0.5/resultados-grales.png Graphic file (type png)
-<use figuras_h=0.5/resultados-grales.png>
-Package pdftex.def Info: figuras_h=0.5/resultados-grales.png  used on input line 458.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 458--459
-[][] 
- []
-
-[17 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/k-variando-d.png>] [18 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h=0.5/resultados-grales.png>]
-<figuras_h_dinamico/cotas-error-d=1.png, id=126, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/cotas-error-d=1.png Graphic file (type png)
-<use figuras_h_dinamico/cotas-error-d=1.png>
-Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=1.png  used on input line 505.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_dinamico/cotas-error-d=2.png, id=127, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/cotas-error-d=2.png Graphic file (type png)
-<use figuras_h_dinamico/cotas-error-d=2.png>
-Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=2.png  used on input line 506.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_dinamico/cotas-error-d=3.png, id=128, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/cotas-error-d=3.png Graphic file (type png)
-<use figuras_h_dinamico/cotas-error-d=3.png>
-Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=3.png  used on input line 507.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_dinamico/cotas-error-d=4.png, id=129, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/cotas-error-d=4.png Graphic file (type png)
-<use figuras_h_dinamico/cotas-error-d=4.png>
-Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=4.png  used on input line 508.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_dinamico/cotas-error-d=6.png, id=130, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/cotas-error-d=6.png Graphic file (type png)
-<use figuras_h_dinamico/cotas-error-d=6.png>
-Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=6.png  used on input line 509.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_dinamico/cotas-error-d=8.png, id=131, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/cotas-error-d=8.png Graphic file (type png)
-<use figuras_h_dinamico/cotas-error-d=8.png>
-Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=8.png  used on input line 510.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_dinamico/cotas-error-d=10.png, id=132, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/cotas-error-d=10.png Graphic file (type png)
-<use figuras_h_dinamico/cotas-error-d=10.png>
-Package pdftex.def Info: figuras_h_dinamico/cotas-error-d=10.png  used on input line 511.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-
-Overfull \hbox (20.2353pt too wide) in paragraph at lines 505--512
-[][] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 505--512
-[] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 505--512
-[] []
- []
-
-[19] [20 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=8.png>]
-<figuras_h_dinamico/k-variando-d.png, id=145, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/k-variando-d.png Graphic file (type png)
-<use figuras_h_dinamico/k-variando-d.png>
-Package pdftex.def Info: figuras_h_dinamico/k-variando-d.png  used on input line 513.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 513--514
-[][] 
- []
-
-<figuras_h_dinamico/resultados-grales.png, id=146, 462.528pt x 346.896pt>
-File: figuras_h_dinamico/resultados-grales.png Graphic file (type png)
-<use figuras_h_dinamico/resultados-grales.png>
-Package pdftex.def Info: figuras_h_dinamico/resultados-grales.png  used on input line 515.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 515--516
-[][] 
- []
-
-[21 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/k-variando-d.png>]
-<figuras_h_semidinamico/cotas-error-d=1.png, id=152, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/cotas-error-d=1.png Graphic file (type png)
-<use figuras_h_semidinamico/cotas-error-d=1.png>
-Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=1.png  used on input line 520.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_semidinamico/cotas-error-d=2.png, id=153, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/cotas-error-d=2.png Graphic file (type png)
-<use figuras_h_semidinamico/cotas-error-d=2.png>
-Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=2.png  used on input line 521.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_semidinamico/cotas-error-d=3.png, id=154, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/cotas-error-d=3.png Graphic file (type png)
-<use figuras_h_semidinamico/cotas-error-d=3.png>
-Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=3.png  used on input line 522.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_semidinamico/cotas-error-d=4.png, id=155, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/cotas-error-d=4.png Graphic file (type png)
-<use figuras_h_semidinamico/cotas-error-d=4.png>
-Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=4.png  used on input line 523.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_semidinamico/cotas-error-d=6.png, id=156, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/cotas-error-d=6.png Graphic file (type png)
-<use figuras_h_semidinamico/cotas-error-d=6.png>
-Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=6.png  used on input line 524.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_semidinamico/cotas-error-d=8.png, id=157, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/cotas-error-d=8.png Graphic file (type png)
-<use figuras_h_semidinamico/cotas-error-d=8.png>
-Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=8.png  used on input line 525.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-<figuras_h_semidinamico/cotas-error-d=10.png, id=158, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/cotas-error-d=10.png Graphic file (type png)
-<use figuras_h_semidinamico/cotas-error-d=10.png>
-Package pdftex.def Info: figuras_h_semidinamico/cotas-error-d=10.png  used on input line 526.
-(pdftex.def)             Requested size: 195.0pt x 146.2511pt.
-
-Overfull \hbox (20.2353pt too wide) in paragraph at lines 520--527
-[][] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 520--527
-[] []
- []
-
-
-Overfull \hbox (2.61049pt too wide) in paragraph at lines 520--527
-[] []
- []
-
-[22 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_dinamico/resultados-grales.png>] [23 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=1.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=2.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=3.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=4.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=6.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=8.png>]
-<figuras_h_semidinamico/k-variando-d.png, id=172, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/k-variando-d.png Graphic file (type png)
-<use figuras_h_semidinamico/k-variando-d.png>
-Package pdftex.def Info: figuras_h_semidinamico/k-variando-d.png  used on input line 528.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 528--529
-[][] 
- []
-
-<figuras_h_semidinamico/resultados-grales.png, id=173, 462.528pt x 346.896pt>
-File: figuras_h_semidinamico/resultados-grales.png Graphic file (type png)
-<use figuras_h_semidinamico/resultados-grales.png>
-Package pdftex.def Info: figuras_h_semidinamico/resultados-grales.png  used on input line 530.
-(pdftex.def)             Requested size: 390.0pt x 292.5128pt.
-
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 530--531
-[][] 
- []
-
-[24 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/cotas-error-d=10.png> </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/k-variando-d.png>] [25 </home/jose/aprendizaje-automatico/tp_final_informe/figuras_h_semidinamico/resultados-grales.png>] [26] (/home/jose/aprendizaje-automatico/tp_final_informe/resumen2.aux
+[28] [29] [30] [31] [32] [33] [34] [35] (/home/jose/aprendizaje-automatico/tp_final_informe/resumen2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 7223 strings out of 492982
- 107610 string characters out of 6134895
- 186288 words of memory out of 5000000
- 10604 multiletter control sequences out of 15000+600000
- 26171 words of font info for 83 fonts, out of 8000000 for 9000
+ 7361 strings out of 492982
+ 113126 string characters out of 6134895
+ 185373 words of memory out of 5000000
+ 10728 multiletter control sequences out of 15000+600000
+ 28386 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,40p,532b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc2074.pfb>
-Output written on /home/jose/aprendizaje-automatico/tp_final_informe/resumen2.pdf (27 pages, 1497856 bytes).
+ 42i,12n,40p,871b,564s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc2074.pfb>
+Output written on /home/jose/aprendizaje-automatico/tp_final_informe/resumen2.pdf (36 pages, 2300906 bytes).
 PDF statistics:
- 261 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
+ 376 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 191 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 341 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,8 @@
 \documentclass[12pt, a4paper]{article}
+\newcommand{\imagenesDH}[2]{
+  \includegraphics[width=0.5\textwidth]{figuras_#1/cotas-error-#2}
+  \includegraphics[width=0.5\textwidth]{figuras_#1/busqueda-de-k-#2}
+}
 \usepackage[spanish]{babel}
 \usepackage[utf8x]{inputenc}
 \usepackage{pdfpages}
@@ -154,14 +158,15 @@ Esta prueba se repitió para $h_n=0.5$ y $h_n=0.1$.
 
 \section{Primeros resultados: $h_n=0.1$}
 
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=10}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=30}
+\imagenesDH{h=0.1}{d=1}
+\imagenesDH{h=0.1}{d=2}
+\imagenesDH{h=0.1}{d=3}
+\imagenesDH{h=0.1}{d=4}
+\imagenesDH{h=0.1}{d=6}
+\imagenesDH{h=0.1}{d=8}
+\imagenesDH{h=0.1}{d=10}
+\imagenesDH{h=0.1}{d=30}
+\imagenesDH{h=0.1}{d=100}
 
 \includegraphics[width=\textwidth]{figuras_h=0.1/k-variando-d}
 
@@ -170,13 +175,13 @@ Esta prueba se repitió para $h_n=0.5$ y $h_n=0.1$.
 
 \section{Primeros resultados: $h_n=0.5$}
 
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=10}
+\imagenesDH{h=0.1}{d=1}
+\imagenesDH{h=0.5}{d=2}
+\imagenesDH{h=0.5}{d=3}
+\imagenesDH{h=0.5}{d=4}
+\imagenesDH{h=0.5}{d=6}
+\imagenesDH{h=0.5}{d=8}
+\imagenesDH{h=0.5}{d=10}
 
 \includegraphics[width=\textwidth]{figuras_h=0.5/k-variando-d}
 
@@ -233,13 +238,14 @@ Así, se llevaron adelante dos pruebas: una con $h_n$ dependiendo de $n$ y $d$, 
 
 \section{Resultados para $h_n$ variando con $d$ y $n$}
 
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=10}
+
+\imagenesDH{h_dinamico}{d=1}
+\imagenesDH{h_dinamico}{d=2}
+\imagenesDH{h_dinamico}{d=3}
+\imagenesDH{h_dinamico}{d=4}
+\imagenesDH{h_dinamico}{d=6}
+\imagenesDH{h_dinamico}{d=8}
+\imagenesDH{h_dinamico}{d=10}
 
 \includegraphics[width=\textwidth]{figuras_h_dinamico/k-variando-d}
 
@@ -248,13 +254,13 @@ Así, se llevaron adelante dos pruebas: una con $h_n$ dependiendo de $n$ y $d$, 
 
 \section{Resultados para $h_n$ variando sólo con $d$}
 
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=10}
+\imagenesDH{h_semidinamico}{d=1}
+\imagenesDH{h_semidinamico}{d=2}
+\imagenesDH{h_semidinamico}{d=3}
+\imagenesDH{h_semidinamico}{d=4}
+\imagenesDH{h_semidinamico}{d=6}
+\imagenesDH{h_semidinamico}{d=8}
+\imagenesDH{h_semidinamico}{d=10}
 
 \includegraphics[width=\textwidth]{figuras_h_semidinamico/k-variando-d}
 

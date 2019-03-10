@@ -1,6 +1,6 @@
 \documentclass[12pt, a4paper]{article}
-\usepackage[utf8x]{inputenc}
 \usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
 \usepackage{pdfpages}
 \usepackage[T1]{fontenc} %Me deja combinar la negrita con las Mayusculas
 
@@ -45,6 +45,236 @@
 \end{titlepage} %Cerrado de la caratula del tp
 \newpage
 \tableofcontents
+\section{Introducción a la primera parte}
+El teorema 5.2 del Gyorfi indica que la esperanza del riesgo $L^2$ de un estimador kernel que usa un kernel naive está acotada por una función de la cantidad de puntos de la muestra ($n$) y la cantidad de dimensiones del domínio ($d$). Se generan situaciones al azar variando $n$ y $d$ con el objetivo de observar de forma empírica las predicciones del teorema.
+Para esto se analiza el comportamiento al variar $n$ entre 100 y 1000, utilizando $d\in\{1;2;3;4;6;8;10;30\}$ y $h_n\in\{ 0.1; 0.5 \}$.
+\section{Introducción teórica}
+\subsection{Estimador kernel}
+Un estimador kernel tiene la forma:
+$$
+m_n(x)=\frac{\sum_{i=1}^{n} Y_i K \big( \frac{x-X_i}{h_n} \big)}{\sum_{i=1}^{n} K \big( \frac{x-X_i}{h_n} \big)}
+$$
+y vale 0 cuando el denominador vale 0. Así, un estimador kernel no es otra cosa que un promedio ponderado de cada $Y_i$ según la distancia entre $x$ y $X_i$, multiplicada por $\frac{1}{h_n}$. A esta distancia se le aplica la función kernel $K(x)$. Generalmente $K(x)$ es grande cuando $|x|$ es grande. A continuación pueden observarse distintos kernels.
+
+\includegraphics[width=\textwidth]{graficos_kernel}
+\subsection{Kernel naive}
+El kernel naive se define como:
+$$
+K(x)=\mathds{1}\{ |x|\leq1 \}
+$$
+Así, los $x\in\mathds{R}^d$ para los cuales $K(||\frac{x-X_i}{h_n}||)=1$ conforman una bola de radio $h_n$ centrada en $X_i$. Además, los únicos valores que puede tomar $K(y)$ son o bien 1 o bien 0 para cualquier $y\in\mathds{R}$. Esto tiene como consecuencia una simplificación del análisis teórico.
+\subsection{Teorema 5.2}
+
+\begin{quotation}
+Teniendo un estimador kernel que utiliza un kernel naive, asumir que:\footnote{For a kernel estimate with a naive kernel assume that}
+
+$$
+\mathop{Var}(Y|X=x)\leq \sigma^2 ,x \in \mathds{R}^d
+$$
+
+y
+$$
+|m(x)-m(z)|\leq||x-z||, x,z \in \mathds{R}^d
+$$
+y $X$ tiene un soporte compacto $S^{*}$. Entonces:\footnote{and $X$ has a compact support $S^{*}$. Then}
+
+$$
+\mathds{E}|| m_n -m ||^2 \leq \hat{c} \dfrac{ \sigma^2 + \mathop{sup}_{z\in S^{*}} |m(z)|^2 }{n \cdot h_n^d} +C^2h_n^2
+$$
+donde $\hat{c}$ depende únicamente del diámetro de $S^{*}$ y de $d$, entonces, para: \footnote{where $\hat{c}$ depends only on the diameter of $S^{*}$ and on $d$, thus for}
+
+$$
+h_n = c' \Bigg( \dfrac{\sigma^2 + \mathop{sup}_{z\in S^{*}}|m(z)|^2 }{C^2} \Bigg)^{1/(d+2)} n^{\Big (-\dfrac{1}{d+2}\Big )}
+$$
+
+tenemos que\footnote{we have}
+
+$$
+\mathds{E}|| m_n - m ||^2 \leq c'' \Bigg (  \sigma^2 + \mathop{sup}_{z\in S^{*}} |m(z)|^2 \Bigg )^{2/(d+2)} C^{2d/(d+2)} n^{-2/(d+2)}
+$$
+
+\end{quotation}
+La demostración de este teorema está incluída en el anexo.
+
+\section{Descripción del primer experimento}
+El objetivo es observar empíricamente las consecuencias teóricas del teorema 5.2 del Gyorfy:
+
+Para esto, se aborda el problema fijando los siguientes parámetros:
+\begin{itemize}
+  \item $D=[-1,1]^d$
+  \item $ x_i \in D$
+  \item $|m(z)|\leq 1 $ para todo $z\in D$
+  \item El ruido agregado a $m(z)$ para generar los pares $x_i$, $y_i$ es una normal cuya varianza varía a lo largo de D, pero nunca supera 1, con lo cual $\mathop{Var}(Y|X=x) = 1$, es decir, $\sigma=1$
+\end{itemize}
+
+Así, queda acotado también $C$. De esta forma, la última ecuación del teorema puede escribirse como:
+$$
+\mathds{E}||m_n - m||^2 \leq c'' (1+1)^{2/(d+2)} C^{2d/(d+2)} n^{-d/(d+2)}
+$$
+Podemos hacer algo similar con la primera conclusión del teorema:
+$$
+\mathds{E}|| m_n -m ||^2 \leq \hat{c} \dfrac{ 1 + 1 }{n \cdot h_n^d} +C^2h_n^2
+$$
+
+
+\subsection{Estimación de $\mathds{E}|| m_n-m ||^2$}
+A continuación se explican los pasos que usa el programa para estimar este valor para determinados $n$, $d$ y $h_n$.
+\begin{enumerate}
+  \item generar una función $m$ con $-1 \leq m(x) \leq 1$ para todo $x \in D$. \footnotemark
+  \item generar una función $s$ con las mismas características.\footnotemark[\value{footnote}]
+  \footnotetext{en un anexo se explica cómo se generaron $m$ y $s$}
+  \item Generar un conjunto $P$ de $n$ pares $(x_i,y_i)$ tales que $y_i = m(x_i) + S$, donde $S$ tiene una distribución normal centrada en 0 y con una varianza $|s(x_i)| \leq 1$. Los puntos $x_i$ pertenecen a $D$, es decir, tienen $d$ dimensiones.
+  \item A partir de este conjunto $P$ de pares, se genera una estimación de la regresión, $m_n$, usando un naive kernel y el $h_n$ correspondiente.
+  \item Teniendo $m(x)$ y $m_n(x)$ definidos para todo $x\in D$, se utiliza la librería de python mcint para integrar $(m(x)-m_n(x))^2$ sobre todo $D$. mcint utiliza técnicas montecarlo para estimar la integral, ya que para $d$ dimensiones la integral es difícil de calcular numericamente (es decir, tarda demasiado). Así se obtiene un $||m-m_n||^2$. Ver el anexo correspondiente para más detalles.
+  \item Se repite este procedimiento para una cantidad de $m(\cdot)$, $s(\cdot)$ y $m_n(\cdot)$ generadas al azar (en la mayoría de los casos se hicieron 300 experimentos para cada $n$ y $d$, en otros casos se hicieron 100).
+  \item Se promedian los $||m-m_n||^2$ para obtener una estimación de la esperanza.
+\end{enumerate}
+
+Así, se obtiene la función $\mathop{encontrarEError}(n,d,h_n)$.
+
+\subsection{Verificación del teorema}
+La segunda conclusión del teorema, para la situación tal como se la limitó, es:
+$$
+\mathds{E}||m_n - m||^2 \leq c'' (1+1)^{2/(d+2)} C^{2d/(d+2)} n^{-d/(d+2)}
+$$
+Así, se puede reemplazar $(1+1)^{2/(d+2)} C^{2d/(d+2)}$ por una constante $c$ que depende sólo de $d$, y $d/(d+2)$ por otra constante $k$ que depende sólo de $d$. Así, para cada una de las combinaciones de $d$ y $h_n$ probados, al variar $n$ se podría conseguir acotar los errores por una expresión de la forma $$c(n^{-k})$$ con $c$ y $k$ constantes que se determinan a partir de los datos.
+
+Se busca verificar que al variar $n$ y mantener fijo $d$ y $h_n$, se cumple que existe una cota de la forma $$c(n^{-k})$$ tal que:
+\begin{itemize}
+  \item $c(n^{-k})$ es mayor que todas las estimaciones $\mathop{encontrarEError}(n)$ ($d$ y $h_n$ son fijos)
+  \item Los $c$ y $k$ elegidos deben ser tales que minimicen $$\sum_{i=1}^n \big( c(i^{-k}) - \mathop{encontrarEError}(i) \big)^2$$
+\end{itemize}
+Así, la curva más ajustada a los datos (es decir, con $c$ y $k$ mejores que los que propone el teorema), debería cumplir que $k$ sea mejor al propuesto por el teorema (el teorema indica $k=2/(d+2)$) para corroborarlo.
+
+También se analizó la curva que cumple $k=2/(d+2)$. En este caso simplemente se fijó $k$ y se buscó sólo el $c$ que cumpla las condiciones listadas arriba.
+
+Esta prueba se repitió para $h_n=0.5$ y $h_n=0.1$.
+
+\includegraphics[width=\textwidth]{figuras_h=0.1/cotas-error-d=1}
+
+\section{Primeros resultados: $h_n=0.1$}
+
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=1}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=2}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=3}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=4}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=6}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=8}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=10}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=30}
+
+\includegraphics[width=\textwidth]{figuras_h=0.1/k-variando-d}
+
+\includegraphics[width=\textwidth]{figuras_h=0.1/resultados-grales}
+
+
+\section{Primeros resultados: $h_n=0.5$}
+
+\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=1}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=2}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=3}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=4}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=6}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=8}
+\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=10}
+
+\includegraphics[width=\textwidth]{figuras_h=0.5/k-variando-d}
+
+\includegraphics[width=\textwidth]{figuras_h=0.5/resultados-grales}
+
+\section{Conclusiones para $h_n$ constante}
+Para $h_n=0.1$ se obtuvieron resultados buenos (que verifican) para $d=1$, $d=2$ y $d=3$, pero para $d$ superiores no se logró la verificación. 
+
+Esto es razonable cuando se tienen en cuenta las reglas usadas en la práctica " común" de machine learning: al aumentar la cantidad de dimensiones y no subsanar esto con más datos se tiene underfitting. 
+
+En este caso en particular también es importante la maldición de la dimensionalidad: a medida que crece $d$, la cantidad de puntos a una distancia fija $h_n$ cae (en realidad, el mismísimo significado de la distancia es el que se pierde: todos los puntos tienden a estar a una distancia muy similar unos de otros).
+
+Aunque las "reglas prácticas del machine learning" y la maldición de la dimensionalidad explican los resultados, estos contradicen al teorema que se busca corroborar empiricamente (es decir, la interpretación que se había hecho del mismo).
+
+Con el objetivo de observar el comportamiento del algoritmo en dimensiones altas, se utilizó $h_n=0.5$ para realizar una nueva prueba.
+
+Los resultados de esta prueba son muy importantes: para dimensiones "medianas"  ( $d=4$, $d=6$), con $h_n=0.5$ se logra lo que no se puede con $h_n=0.1$: se tiene una mejora gradual y se corrobora el teorema para $d=6$.
+
+Esto nos lleva a que $h_n$ distintos funcionan bien para $d$ distintos, con lo cual $h_n$ debe estar relacionado a $d$. La necesidad de un $h_n$ mayor para mayor $d$ es consecuencia de la maldición de la dimensionalidad: a medida que crece $d$, la distancia promedio entre los puntos es mayor y un $h_n$ que funciona para $d=1$ no es significativo para $d$ mayores.
+
+El motivo por el cual no se pudieron observar empíricamente las consecuencias del teorema es que fue ignorada la condición sobre $h_n$ que requiere la segunda conclusión del teorema:
+
+
+$$
+h_n = c' \Bigg( \dfrac{\sigma^2 + \mathop{sup}_{z\in S^{*}}|m(z)|^2 }{C^2} \Bigg)^{1/(d+2)} n^{\Big (-\dfrac{1}{d+2}\Big )}
+$$
+
+Además no se tuvo en cuenta el teorema 5.1, que establece condiciones sobre $h_n$ para que un estimador kernel tenga convergencia universal débil al variar $d$. Así, según este último teorema, un $h_n$ constante sólo funcionará bien para $n$ y $d$ constante.
+
+\section{Introducción a la segunda parte}
+En la segunda parte se analiza el teorema 5.1 del Gyrofi, que establece condiciones para las cuales cualquier estimador kernel cuyo kernel cumple ciertas condiciones (llamadas \textit{boxed kernel}), converge de forma universalmente débil. Siendo que el kernel naive cumple las condiciones de un \textit{boxed kernel}, y que se utiliza un $h_n$ que varía según lo determina el teorema, se espera que, tal estimador converja para cualquier $d$. Nuevamente se generan situaciones al azar variando $n$ y $d$ y se analizar $n$ entre 100 y 1000, utilizando $d\in\{ 1,2,3,4,6,8,10  \}$ y $h_n\in\{ 0.8548\cdot(n^(-1/4.054 \cdot d)); 10^{-1/d} \}$. Se realiza el mismo análisis que en el teorema 5.2, para observar si con las nuevas restricciones sobre $h_n$, éste también se cumple.
+
+\section{Descripción del segundo experimento}
+
+Es imposible fijar 
+$$
+h_n = c' \Bigg( \dfrac{\sigma^2 + \mathop{sup}_{z\in S^{*}}|m(z)|^2 }{C^2} \Bigg)^{1/(d+2)} n^{\Big (-\dfrac{1}{d+2}\Big )}
+$$
+ya que para eso sería necesario conocer $c'$.
+
+Entonces se intenta corroborar el teorema 5.1, que establece:
+
+\begin{quotation}
+\textbf{Teorema 5.1:} Asumiendo que se tienen bolas $S_{0,r}$ de radio $r$ y bolas $S_{0,R}$ de radio $R$ centradas en el origen ($0 < r\leq R$), y una constante $b>0$ tal que \footnote{ Assume that there are balls $S_{0,r}$ of radius $r$ and balls $S_{0,R}$ of radius $R$ centered at the origin ($0 < r\leq R$), and constant $b>0$ such that }
+$$
+\mathds{1}\{x\in S_{0,R}\}\geq K(x) \geq b \mathds{1}\{x\in S_{0,r}\}
+$$
+(boxed kernel), y considérese el estimador kernel $m_n$ si $h_n \rightarrow 0$ y $n h_n^d \rightarrow \infty$. Entonces el estimador kernel es debilmente y universalmente consistente.\footnote{and consider the kernel estimate $m_n$ if $h_n \rightarrow 0$ and $n h_n^d \rightarrow \infty$, then the kernel estimate is weakly universally consistent.}
+\end{quotation}
+
+El kernel naive es un boxed kernel, por lo tanto, si se cumplen las condiciones sobre $h_n$ que establece este teorema, se obtiene la consistencia debil.
+
+Así, se llevaron adelante dos pruebas: una con $h_n$ dependiendo de $n$ y $d$, y otra en la cual depende sólo de $d$. Así, para la primera, se usó $$ 0.8548 (n^{(-1/(4.054 \cdot d))}) $$, lo cual cumple las condiciones y además cumple que $h_n$ es aproximadamente $0.1$ cuando $d=1$ y $n=8000$, y aproximadamente $0.5$ cuando $d=4$ y $n=8000$. Para la segunda corrida de pruebas se utilizó $h_n=10^{-1/d}$, elegido con el mismo criterio.
+
+\section{Resultados para $h_n$ variando con $d$ y $n$}
+
+\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=1}
+\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=2}
+\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=3}
+\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=4}
+\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=6}
+\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=8}
+\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=10}
+
+\includegraphics[width=\textwidth]{figuras_h_dinamico/k-variando-d}
+
+\includegraphics[width=\textwidth]{figuras_h_dinamico/resultados-grales}
+
+
+\section{Resultados para $h_n$ variando sólo con $d$}
+
+\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=1}
+\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=2}
+\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=3}
+\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=4}
+\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=6}
+\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=8}
+\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=10}
+
+\includegraphics[width=\textwidth]{figuras_h_semidinamico/k-variando-d}
+
+\includegraphics[width=\textwidth]{figuras_h_semidinamico/resultados-grales}
+
+\section{Conclusiones para $h_n$ variable}
+
+En caso de $h_n$ variable, se obtuvieron mejores resultados para todas las curvas: hubo aprendizaje para $d$ entre 1 y 6, lo cual era de esperar debido al criterio utilizado para elegir las constantes, discutido previamente; y también hubo aprendizaje para $d=8$, lo cual no se había observado para $h_n=0.1$ ni $h_n=0.5$. Esto es un indício fuerte para opinar que es posible corroborar el teorema 5.1.
+
+El aprendizaje para $d=8$ es muy notorio para $h_n$ dependiente sólo de $d$, y menos notorio para $h_n$ dependiente de $n$, lo cual podría resultar contradictorio al teorema.
+
+El hecho de que para $d=10$ no se dé el aprendizaje podría deberse a dos motivos:
+\begin{enumerate}
+  \item Las constantes elegidas para las funciones $h_n(n,d)$ y $h_n(d)$ son incorrectas.
+  \item Las formas generales elegidas para $h_n(n,d)$ y $h_n(d)$ son incorrectas.
+\end{enumerate}
+
+Otra posibilidad es que el teorema sea imposible de corroborar en altas dimensiones debido a la maldición de la dimensionalidad: que el aprendizaje sea demasiado lento como para observarlo.
+
+
 \newpage
 \section{Reconstrucción de la prueba del teorema 5.2}
 \subsection{Esquema de la prueba}
@@ -60,7 +290,7 @@
   \item Aplicar las cotas y el resultado de la integral en la segunda descomposición 
 \end{enumerate}
 
-\subsection{Prueba del teorema 5.2}
+\subsection{Anexo: Prueba del teorema 5.2}
 \subsubsection{Descomponer $ \mathds{E}[ (m_n(x) - m(x))^2 | X_1, ..., X_n] $ en dos términos}
 
 $$
@@ -347,202 +577,61 @@ Donde $\hat{c}=2\tilde{c}$
 \subsubsection{Análisis de la segunda proposición del teorema}
 Al reemplazar el $h_n$ propuesto en la expresión final alcanzada, se obtiene la segunda proposición del teorema, en la que $c''=c'+\hat{c}(c')^{-d}=c'+2\tilde{c}(c')^{-d}$.
 
-\section{Idea - introducción teórica}
-El objetivo es comprobar empíricamente el teorema 5.2 del Gyorfy:
 
-\begin{quotation}
-\textbf{Theorem  5.2:} For a kernel estimate with a naive kernel assume that
 
-$$
-\mathop{Var}(Y|X=x)\leq \sigma^2 ,x \in \mathds{R}^d
-$$
 
-and
-$$
-|m(x)-m(z)|\leq||x-z||, x,z \in \mathds{R}^d
-$$
-
-and $X$ has a compact support $S^{*}$. Then
-
-$$
-\mathds{E}|| m_n -m ||^2 \leq \hat{c} \dfrac{ \sigma^2 + \mathop{sup}_{z\in S^{*}} |m(z)|^2 }{n \cdot h_n^d} +C^2h_n^2
-$$
-where $\hat{c}$ depends only on the diameter of $S^{*}$ and on $d$, thus for
-
-$$
-h_n = c' \Bigg( \dfrac{\sigma^2 + \mathop{sup}_{z\in S^{*}}|m(z)|^2 }{C^2} \Bigg)^{1/(d+2)} n^{\Big (-\dfrac{1}{d+2}\Big )}
-$$
-
-we have
-
-$$
-\mathds{E}|| m_n - m ||^2 \leq c'' \Bigg (  \sigma^2 + \mathop{sup}_{z\in S^{*}} |m(z)|^2 \Bigg )^{2/(d+2)} C^{2d/(d+2)} n^{-2/(d+2)}
-$$
-
-\end{quotation}
-
-Para esto, se acota el problema a la siguiente situación:
+\section{Generación de las funciones $m$ y $s$}
 \begin{itemize}
-  \item $ x_i \in D$
-  \item $|m(z)|\leq 1 $ para todo $z\in D$
-  \item El ruido agregado a $m(z)$ para generar los pares $x_i$, $y_i$ es una normal estándard, con lo cual $\mathop{Var}(Y|X=x) = 1$, es decir, $\sigma=1$
+    \item Se genera un número al azar entre 5 y 8, que luego se multiplica por $d$. Llámese esta cantidad $p$
+    \item Se generan $p$ puntos $P_i$ al azar, pertenecientes a $D=[-1,1]^d$.
+    \item se generan $p$ valores al azar $Q_i\in[-1,1]$.
+    \item Sea $q$ el promedio del $Q_i$ más alto y el más bajo.
+    \item Se define:
+    $$
+g(x)=\frac{\sum_{i=1}^{p} Q_i K \big( \frac{x-P_i}{0.2} \big)}{\sum_{i=1}^{p} K \big( \frac{x-P_i}{0.2} \big)}
+    $$
+    Con $K$ un kernel gaussiano que utiliza una gaussiana con $\sigma=1$.
+    \item La función $f$ generada es:
+    $$
+    f(x)=g(x)-q
+    $$
 \end{itemize}
 
-Siendo $D=[-1,1]^d$
-
-Así, queda acotado también $C$. De esta forma, la última ecuación del teorema puede escribirse como:
-$$
-\mathds{E}||m_n - m||^2 \leq c'' (1+1)^{2/(d+2)} C^{2d/(d+2)} n^{-d/(d+2)}
-$$
-Podemos hacer algo similar con la primera conclusión del teorema:
-$$
-\mathds{E}|| m_n -m ||^2 \leq \hat{c} \dfrac{ 1 + 1 }{n \cdot h_n^d} +C^2h_n^2
-$$
-\section{Primera estrategia}
-
-\subsection{Estimación de $\mathds{E}|| m_n-m ||^2$}
-A continuación se explican los pasos que usa el programa para estimar este valor para determinados $n$, $d$ y $h_n$.
-\begin{enumerate}
-  \item generar una función $m(\cdot)$ con $-1 \leq m(x) \leq 1$ para todo $x \in D$.
-  \item generar una función $s(x)$ con las mismas características
-  \item Generar un conjunto $P$ de $n$ pares $(x_i,y_i)$ tales que $y_i = m(x_i) + S$, donde $S$ tiene una distribución normal centrada en 0 y con una varianza $|s(x_i)| \leq 1$. Los puntos $x_i$ pertenecen a $D$, es decir, tienen $d$ dimensiones.
-  \item A partir de este conjunto $P$ de pares, se genera una estimación de la regresión, $m_n$, usando un naive kernel y el $h_n$ correspondiente.
-  \item Teniendo $m(x)$ y $m_n(x)$ definidos para todo $x\in D$, se utiliza la librería de python mcint para integrar $(m(x)-m_n(x))^2$ sobre todo $D$. mcint utiliza técnicas montecarlo para estimar la integral, ya que para $d$ dimensiones la integral es difícil de calcular numericamente (es decir, tarda demasiado). Así se obtiene un $||m-m_n||^2$.
-  \item Se repite este procedimiento para una cantidad de $m(\cdot)$, $s(\cdot)$ y $m_n(\cdot)$ generadas al azar (en la mayoría de los casos se hicieron 300 experimentos para cada $n$ y $d$, en otros casos se hicieron 100).
-  \item Se promedian los $||m-m_n||^2$ para obtener una estimación de la esperanza.
-\end{enumerate}
-Así, se obtiene la función $\mathop{encontrarEError}(n,d,h_n)$.
-
-\subsection{Verificación del teorema}
-La idea inicial era verificar que al variar $n$ y mantener fijo $d$ y $h_n$, se cumpliría que existe una cota de la forma $$c(n^{-k})$$ que cumpla:
+\section{Cálculo de la integral $\int_D \big(m(x)-m_n(x)\big)^2 dx$}
+Para calcular una integral se tienen tres alternativas:
 \begin{itemize}
-  \item $c(n^{-k})$ es mayor que todas las estimaciones $\mathop{encontrarEError}(n)$ ($d$ y $h_n$ son fijos)
-  \item Los $c$ y $k$ elegidos deben ser tales que minimicen $\sum_{i=1}^n c(n^{-k})$
+    \item Encontrar la primitiva.
+    \item Aplicar métodos numéricos
+    \item Encontrar una estimación
 \end{itemize}
-Así, la curva más ajustada a los datos (es decir, con $c$ y $k$ mejores que los que propone el teorema), debería cumplir que $k$ sea mejor al propuesto por el teorema (el teorema indica $k=2/(d+2)$) para verificarlo.
-
-También se analizó la curva que cumple $k=2/(d+2)$. En este caso simplemente se agregó esta condición sobre $k$ y se buscó sólo el $c$ que cumpla las condiiciones listadas arriba.
-
-Esta prueba se repitió para $h_n=0.5$ y $h_n=0.1$.
-
-\includegraphics[width=\textwidth]{figuras_h=0.1/cotas-error-d=1}
-
-\section{Primeros resultados: $h_n=0.1$}
-
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=10}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.1/cotas-error-d=30}
-
-\includegraphics[width=\textwidth]{figuras_h=0.1/k-variando-d}
-
-\includegraphics[width=\textwidth]{figuras_h=0.1/resultados-grales}
-
-
-\section{Primeros resultados: $h_n=0.5$}
-
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h=0.5/cotas-error-d=10}
-
-\includegraphics[width=\textwidth]{figuras_h=0.5/k-variando-d}
-
-\includegraphics[width=\textwidth]{figuras_h=0.5/resultados-grales}
-
-\section{Conclusiones para $h_n$ constante}
-Para $h_n=0.1$ se obtuvieron resultados buenos (que verifican) para $d=1$, $d=2$ y $d=3$, pero para $d$ superiores no se logró la verificación. 
-
-Esto es razonable cuando se tienen en cuenta las reglas usadas en la práctica "común" de machine learning: al aumentar la cantidad de dimensiones y no subsanar esto con más datos se tiene underfitting. 
-
-En este caso en particular también es importante la maldición de la dimensionalidad: a medida que crece $d$, la cantidad de puntos a una distancia fija $h_n$ cae (en realidad, el mismísimo significado de la distancia es el que se pierde: todos los puntos tienden a estar a una distancia muy similar unos de otros).
-
-Aunque las "reglas prácticas del machine learning" y la maldición de la dimensionalidad explican los resultados, estos contradicen al teorema que se busca corroborar empiricamente (es decir, la interpretación que se había hecho del mismo).
-
-Con el objetivo de observar el comportamiento del algoritmo en dimensiones altas, se utilizó $h_n=0.5$ para realizar una nueva prueba.
-
-Los resultados de esta prueba son muy importantes: para dimensiones "medianas"  ( $d=4$, $d=6$), con $h_n=0.5$ se logra lo que no se puede con $h_n=0.1$: se tiene una mejora gradual y se corrobora el teorema para $d=6$.
-
-El problema es que fue ignorada la condición sobre $h_n$ que requiere la segunda conclusión del teorema:
-
+\subsection{Dificultades de encontrar la primitiva de $g(x)=\big(m(x)-m_n(x)\big)^2$}
+La función $g(x)$ puede escribirse como:
 
 $$
-h_n = c' \Bigg( \dfrac{\sigma^2 + \mathop{sup}_{z\in S^{*}}|m(z)|^2 }{C^2} \Bigg)^{1/(d+2)} n^{\Big (-\dfrac{1}{d+2}\Big )}
+\Bigg(\frac{\sum_{i=1}^{p} Q_i K_G \big( \frac{x-P_i}{0.2} \big)}{\sum_{i=1}^{p} K_G \big( \frac{x-P_i}{0.2} \big)}-q-\frac{\sum_{i=1}^{n} Y_i K_N \big( \frac{x-X_i}{h_n} \big)}{\sum_{i=1}^{n} K_N \big( \frac{x-X_i}{h_n} \big)}\Bigg)^2
 $$
-
-\section{Segunda estrategia}
-
-Es imposible fijar 
-$$
-h_n = c' \Bigg( \dfrac{\sigma^2 + \mathop{sup}_{z\in S^{*}}|m(z)|^2 }{C^2} \Bigg)^{1/(d+2)} n^{\Big (-\dfrac{1}{d+2}\Big )}
-$$
-ya que para eso sería necesario conocer $c'$.
-
-Entonces se intenta corroborar el teorema 5.1, que establece:
-
-\begin{quotation}
-\textbf{Theorem 5.1:} Assume that there are balls $S_{0,r}$ of radius $r$ and balls $S_{0,R}$
-of radius $R$ centered at the origin ($0 < r\leq R$), and constant $b>0$ such that
-$$
-\mathds{1}\{x\in S_{0,R}\}\geq K(x) \geq b \mathds{1}\{x\in S_{0,r}\}
-$$
-(boxed kernel), and consider the kernel estimate $m_n$ if $h_n \rightarrow 0$ and $n h_n^d \rightarrow \infty$, then the kernel estimate is weakly universally consistent.
-\end{quotation}
-
-El kernel naive es un boxed kernel, por lo tanto, si se cumplen las condiciones sobre $h_n$ que establece este teorema, se obtiene la consistencia debil.
-
-Así, se llevaron adelante dos pruebas: una con $h_n$ dependiendo de $n$ y $d$, y otra en la cual depende sólo de $d$. Así, para la primera, se usó $$ 0.8548 (n^{(-1/(4.054 \cdot d))}) $$, lo cual cumple las condiciones y además cumple que $h_n$ es aproximadamente $0.1$ cuando $d=1$ y $n=8000$, y aproximadamente $0.5$ cuando $d=4$ y $n=8000$. Para la segunda corrida de pruebas se utilizó $h_n=10^{-1/d}$, elegido con el mismo criterio.
-
-\section{Resultados para $h_n$ variando con $d$ y $n$}
-
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h_dinamico/cotas-error-d=10}
-
-\includegraphics[width=\textwidth]{figuras_h_dinamico/k-variando-d}
-
-\includegraphics[width=\textwidth]{figuras_h_dinamico/resultados-grales}
-
-
-\section{Resultados para $h_n$ variando sólo con $d$}
-
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=1}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=2}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=3}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=4}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=6}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=8}
-\includegraphics[width=0.5\textwidth]{figuras_h_semidinamico/cotas-error-d=10}
-
-\includegraphics[width=\textwidth]{figuras_h_semidinamico/k-variando-d}
-
-\includegraphics[width=\textwidth]{figuras_h_semidinamico/resultados-grales}
-
-\section{Conclusiones para $h_n$ variable}
-
-En caso de $h_n$ variable, se obtuvieron mejores resultados para todas las curvas: hubo aprendizaje para $d$ entre 1 y 6, lo cual era de esperar debido al criterio utilizado para elegir las constantes, discutido previamente; y también hubo aprendizaje para $d=8$, lo cual no se había observado para $h_n=0.1$ ni $h_n=0.5$. Esto es un indício fuerte para opinar que es posible corroborar el teorema 5.1.
-
-El aprendizaje para $d=8$ es muy notorio para $h_n$ dependiente sólo de $d$, y menos notorio para $h_n$ dependiente de $n$, lo cual podría resultar contradictorio al teorema.
-
-El hecho de que para $d=10$ no se dé el aprendizaje podría deberse a dos motivos:
-\begin{enumerate}
-  \item Las constantes elegidas para las funciones $h_n(n,d)$ y $h_n(d)$ son incorrectas.
-  \item Las formas generales elegidas para $h_n(n,d)$ y $h_n(d)$ son incorrectas.
-\end{enumerate}
-
-Otra posibilidad es que el teorema sea imposible de corroborar en altas dimensiones debido a la maldición de la dimensionalidad: que el aprendizaje sea demasiado lento como para observarlo.
-
-
-
+donde $K_G$ es el kernel gaussiano y $K_N$ es el kernel naive.
+Las dificultades de obtener la primitiva son:
+\begin{itemize}
+    \item La función primitiva de $e^{-x^2}$ se conoce como \textit{función error} ($erf(x)$), y no se conoce su fórmula.
+    \item Sería necesario obtener todos los sub conjuntos de $D$ para los cuales se "activan" de forma distinta los kernels. La parametrización de los límites de la integral sería muy compleja.
+    \item Obtener la primitiva y realizar los cálculos a partir de la misma no implica que los mismos sean precisos. Así, es posible que la primitiva -si se puediera encontrar- tenga una expresión muy compleja, de forma que la precisión del cálculo sea menor que la que se podría obtener por medio de un método numérico o una estimación.
+\end{itemize}
+\subsection{Dificultades de calcular la integral por medio de métodos numéricos}
+Se analizaron diversas alternativas, poniendo mayor atención en los paquetes de cálculo numérico de integrales disponibles para python. Entre estos, se puso mayor atención en los provistos por scipy.
+\begin{itemize}
+    \item La mayoría de los métodos provistos por scipy son para funciones de una dimensión
+    \item Muchos métodos de integración requieren la derivada, la cual no puede ser calculada, ya que el kernel naive no puede derivarse.
+    \item Los métodos numericos encontrados asumen que la función es contínua, lo cual no se da este caso, debido al kernel naive.
+    \item Los métodos numéricos que ofrece scipy son para 1, 2 ó 3 dimensiones, no más.
+    \item Muchos métodos numéricos requieren un muestreo o una grilla, con lo cual el tiempo consumido por el algoritmo es exponencial a la cantidad de dimensiones.
+\end{itemize}
+\subsection{Razones para calcular la integral por medio de métodos montecarlo}
+\begin{itemize}
+    \item Se tiene una aproximación de la integral que o bien puede ser arbitrariamente precisa o bien puede tomar una cantidad arbitraria de tiempo. Aquí se decidió tomar una cantidad arbitraria de muestras: 1000.
+    \item Es util para realizar un prototipo o análisis exploratorio de la situación, ya que requiere muy poco desarrollo.
+    \item Indica la precisión aproximada alcanzada.
+\end{itemize}
+\subsection{Método montecarlo utilizado}
+El método utilizado es muy sencillo y consiste en generar una cantidad fija de puntos aleatorios sobre $D$ y calcular $g(x)$ sobre estos puntos. El promedio de los $g(x)$ calculados es el valor aproximado de la integral y la estimación de la varianza de los mismos conforma la estimación del error.
 \end{document}
